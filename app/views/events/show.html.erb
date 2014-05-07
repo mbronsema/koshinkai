@@ -1,0 +1,10 @@
+<div>
+<h1><%= @event.title %></h1>
+<strong>Uitleg</strong><br />
+<%= @event.message %><br />
+<%= "Begint op " + @event.starting_at.strftime('%d-%m-%Y om %H:%M.') %><br />
+<%= "Eindigt op " + @event.ending_at.strftime('%d-%m-%Y om %H:%M.')%><br />
+<%= @event.repeat %><br />
+</div>
+<%= link_to 'Activiteit toevoegen', new_event_path %>
+<%= link_to 'Activiteiten overzicht', events_path %> 

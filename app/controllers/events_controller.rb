@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
 
 	def index
-		@event = Event.all
+		@events = Event.all
+		@event = Event.new
 	end
 
 	def show
@@ -14,13 +15,11 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new(event_params)
-
 		if @event.save
 			redirect_to @event
 		else
 			render 'new'
 		end
-
 	end
 
 	def edit 
@@ -36,11 +35,14 @@ class EventsController < ApplicationController
     end
 	end
 
-	def delete
+	def destroy
+		@event = Event.find(params[:id])
+		@event.destroy
+		redirect_to events_path
 	end
 
 	private
 	def event_params
-		params.require(:event).permit(:title, :message, :starting_at, :ending_at :)
+		params.require(:event).permit(:title, :message, :starting_at, :ending_at, :repeat)
 	end
 end

@@ -1,0 +1,13 @@
+<%= form_for @event do |e| %>
+  <%= e.label :title, "Titel" %><br /> <%= e.text_field :title %><br />
+  <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %><br />
+  <%= e.label :starting_at, "Begin tijd en datum:" %><br /><%= e.datetime_select :starting_at,  order: [:day , :month, :year],  
+  start_hour: DateTime.now.hour-DateTime.now.hour, end_hour: 23 %><br />
+  <%= e.label :ending_at, "Eind tijd en datum:" %><br /><%= e.datetime_select :ending_at, order: [:day , :month, :year]%><br />
+  <p><%= e.label :repeat, "Herhalende activiteit?" %></br>
+  <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %><%= e.label(:repeat_none, "Eenmalig") %> <br />
+  <%= e.radio_button(:repeat, "Weekelijks") %><%= e.label(:repeat_weekly, "Weekelijks") %><br />
+  <%= e.radio_button(:repeat, "Tweeweekelijks") %><%= e.label(:repeat_biweekly, "Tweeweekelijks") %><br />
+  <%= e.radio_button(:repeat, "Maandelijks") %><%= e.label(:repeat_monthly, "Maandelijks") %></p>
+  <%= e.submit "Activteit toevoegen" %>
+<% end %>
