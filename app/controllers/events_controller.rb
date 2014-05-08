@@ -1,12 +1,14 @@
 class EventsController < ApplicationController
-
+respond_to :html, :json
 	def index
 		@events = Event.all
 		@event = Event.new
+		respond_with @events
 	end
 
 	def show
 		@event = Event.find(params[:id])
+		respond_with @event
 	end
 
 	def new

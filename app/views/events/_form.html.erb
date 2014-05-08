@@ -9,8 +9,9 @@
   <%= e.radio_button(:repeat, "Weekelijks") %><%= e.label(:repeat_weekly, "Weekelijks") %><br />
   <%= e.radio_button(:repeat, "Tweeweekelijks") %><%= e.label(:repeat_biweekly, "Tweeweekelijks") %><br />
   <%= e.radio_button(:repeat, "Maandelijks") %><%= e.label(:repeat_monthly, "Maandelijks") %></p>
-    <% if current_page?('events/id/edit') %>
-         <%= e.submit "Activteit wijzigen" %>
-    <% end %>
+  <% if current_page?('edit_event_path') %>
+  <%= e.submit "Activteit wijzigen" %>
+  <% else %>
   <%= e.submit "Activteit toevoegen" %>
+  <% end %>
 <% end %>

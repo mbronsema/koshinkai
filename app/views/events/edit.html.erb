@@ -1,2 +1,6 @@
 <h1>Wijzigingen doorvoeren op <%= @event.title %></h1>
   <%= render 'form' %>
+
+   <% if current_page?('events/{id}/edit') %>
+   <%= 'heeeeee' %>
+   <% end %>
