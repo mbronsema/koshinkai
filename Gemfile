@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
+# Assets
+gem 'rails-assets-fullcalendar'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

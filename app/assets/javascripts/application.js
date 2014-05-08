@@ -12,5 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require fullcalendar
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+    	eventSources:[
+    		{
+    			url: '/events',
+    			type: 'GET',
+    			error: function(){
+    				alert('couldn\'t find the feed')
+    			},
+    			color: '#108ac2',
+    			textColor: 'white'
+       		}
+    	]
+    });
+});
