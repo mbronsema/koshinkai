@@ -28,6 +28,7 @@ group :development, :test do
 end
 # Assets
 gem 'rails-assets-fullcalendar'
+gem 'rails-assets-bootstrap'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
