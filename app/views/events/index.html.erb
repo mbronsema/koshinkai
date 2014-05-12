@@ -3,7 +3,7 @@
 <div id="calendar" class="col-md-6"></div>
 <div class="col-md-6">
 <br/><%= link_to 'Een nieuwe activiteit aanmaken', new_event_path, class: 'btn btn-success' %><br/><br/>
-  <strong>Activiteiten</strong><br/>
+  <strong>Activiteiten <span class="badge"><%= @events.length %></span></strong><br/>
 <% @events.each do |event| %>
 <%= link_to event.title, event %> <sup><%= link_to '', event, method: :delete, class: "glyphicon glyphicon-remove", title: "verwijderen" %></sup><br />
 <% end %>

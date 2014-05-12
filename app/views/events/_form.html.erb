@@ -1,21 +1,27 @@
 
-<%= t('hello')  %>
-<%= form_for(@event, html: { role: 'form', class: 'form-horizontal well col-md-5'}) do |e| %>
-  <%= e.label :title, "Titel" %><br /> <%= e.text_field :title %><br />
-  <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %><br />
+<div class="container">
+<p class="bg-primary col-md-12 large"><%= t('hello')  %></p>
+
+<%= form_for(@event, html: { role: 'form', class: 'form-horizontal well col-md-12'}) do |e| %>
+  <%= e.label :title, "Titel" %><br /> <%= e.text_field :title, class: "form-control" %><br />
+  <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message, class: "form-control" %><br />
  
   <span class="input-group-addon"> <%= e.label :starting_at, "Begin tijd en datum:" %> <span class="glyphicon glyphicon-calendar"> <%= e.text_field :starting_at, 'data-behaviour' => 'datepicker' %></span></span><br/>
 
 
-  <span class="input-group-addon"> <%= e.label :ending_at, "Eind tijd en datum:" %>  <span class="glyphicon glyphicon-calendar">  <%= e.datetime_select :ending_at, order: [:day , :month, :year]%></span></span>
+  <span class="input-group-addon"> <%= e.label :ending_at, "Eind tijd en datum:" %>  <span class="glyphicon glyphicon-calendar">  
+  <%= e.text_field :ending_at, 'data-behaviour' => 'datepicker'%></span></span>
   <p><%= e.label :repeat, "Herhalende activiteit?" %></br>
-  <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %><%= e.label(:repeat_none, "Eenmalig") %> <br />
-  <%= e.radio_button(:repeat, "Weekelijks") %><%= e.label(:repeat_weekly, "Weekelijks") %><br />
-  <%= e.radio_button(:repeat, "Tweeweekelijks") %><%= e.label(:repeat_biweekly, "Tweeweekelijks") %><br />
-  <%= e.radio_button(:repeat, "Maandelijks") %><%= e.label(:repeat_monthly, "Maandelijks") %></p>
+  <div class="radio">
+    <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %> <%= e.label(:repeat_none, "Eenmalig") %> <br />
+    <%= e.radio_button(:repeat, "Weekelijks") %> <%= e.label(:repeat_weekly, "Weekelijks") %><br />
+    <%= e.radio_button(:repeat, "Tweeweekelijks") %> <%= e.label(:repeat_biweekly, "Tweeweekelijks") %><br />
+    <%= e.radio_button(:repeat, "Maandelijks") %> <%= e.label(:repeat_monthly, "Maandelijks") %></p>
+  </div>
   <% if current_page?('edit_event_path') %>
-  <%= e.submit "Activteit wijzigen" %>
+  <%= e.submit "Activteit wijzigen", class: "btn btn-warning" %>
   <% else %>
   <%= e.submit "Activteit toevoegen", class: 'btn btn-primary' %>
   <% end %>
 <% end %>
+</div>
