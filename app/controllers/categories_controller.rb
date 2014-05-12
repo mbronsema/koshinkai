@@ -6,9 +6,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    respond_with @category
-  end
+    unless @category = Category.find_by_submenuname(params[:submenuname])
+      redirect_to categories_path
+    end
+    end
+
+   
+
 
   def new
     @category = Category.new

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
 
-  get '/events/:id/:title', to: 'events#show', as: 'event_with_title'
+  get '/:submenuname', to: 'categories#show', as: :submenuname
+  #match ':submenuname' => 'categories#show', :via => :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
