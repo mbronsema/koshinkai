@@ -17,6 +17,7 @@
 //= require moment
 //= require bootstrap
 //= require bootstrap-datetimepicker
+//= require moment
 //= require moment/nl
 //= require locales/bootstrap-datetimepicker.nl.js
 //= require fullcalendar
