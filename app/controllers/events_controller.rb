@@ -5,7 +5,7 @@ respond_to :html, :json
 		@event = Event.new
 		respond_with @events
 	end
-
+  #hallo boys
 	def show
 		@event = Event.find(params[:id])
 		respond_with @event
