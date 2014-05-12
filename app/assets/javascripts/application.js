@@ -18,7 +18,7 @@
 //= require_tree .
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
-
+    'use strict'
     $('#calendar').fullCalendar({
     	eventSources:[
     		{
