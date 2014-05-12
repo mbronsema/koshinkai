@@ -4,10 +4,10 @@
   <%= e.label :title, "Titel" %><br /> <%= e.text_field :title %><br />
   <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %><br />
  
-  <span class="input-group-addon"> <%= e.label :starting_at, "Begin tijd en datum:" %> <span class="glyphicon glyphicon-calendar"><%= e.text_field :starting_at, 'data-behaviour' => 'datepicker' %></span></span>
+  <span class="input-group-addon"> <%= e.label :starting_at, "Begin tijd en datum:" %> <span class="glyphicon glyphicon-calendar"> <%= e.text_field :starting_at, 'data-behaviour' => 'datepicker' %></span></span><br/>
 
 
-  <%= e.label :ending_at, "Eind tijd en datum:" %><br /><%= e.datetime_select :ending_at, order: [:day , :month, :year]%><br />
+  <span class="input-group-addon"> <%= e.label :ending_at, "Eind tijd en datum:" %>  <span class="glyphicon glyphicon-calendar">  <%= e.datetime_select :ending_at, order: [:day , :month, :year]%></span></span>
   <p><%= e.label :repeat, "Herhalende activiteit?" %></br>
   <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %><%= e.label(:repeat_none, "Eenmalig") %> <br />
   <%= e.radio_button(:repeat, "Weekelijks") %><%= e.label(:repeat_weekly, "Weekelijks") %><br />

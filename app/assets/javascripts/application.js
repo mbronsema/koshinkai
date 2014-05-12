@@ -15,32 +15,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datetimepicker
+//= require moment/nl
+//= require locales/bootstrap-datetimepicker.nl.js
 //= require fullcalendar
 //= require turbolinks
 //= require_tree .
-$(document).ready(function() {
-    // page is now ready, initialize the calendar...
-    'use strict'
-	 $('[data-behaviour~=datepicker]').datetimepicker({
-		language: 'nl',
-		format: 'YYYY-MM-DD hh:mm',
-		maskInput: true,
-		pick12HourFormat: false,
-		showToday: true	
-	});
-
-    $('#calendar').fullCalendar({
-    	eventSources:[
-    		{
-    			url: '/events',
-    			type: 'GET',
-    			error: function(){
-    				alert('couldn\'t find the feed')
-    			},
-    			color: '#108ac2',
-    			textColor: 'white'
-       		}
-    	]
-    
-    });
-});
