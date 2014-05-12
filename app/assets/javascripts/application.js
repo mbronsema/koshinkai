@@ -31,5 +31,6 @@ $(document).ready(function() {
     			textColor: 'white'
        		}
     	]
+    
     });
 });
