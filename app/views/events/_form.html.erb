@@ -1,8 +1,13 @@
-<%= form_for @event do |e| %>
+
+<%= form_for(@event, html: { role: 'form'}) do |e| %>
   <%= e.label :title, "Titel" %><br /> <%= e.text_field :title %><br />
   <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %><br />
-  <%= e.label :starting_at, "Begin tijd en datum:" %><br /><%= e.datetime_select :starting_at,  order: [:day , :month, :year],  
-  start_hour: DateTime.now.hour-DateTime.now.hour, end_hour: 23 %><br />
+  <%= e.label :starting_at, "Begin tijd en datum:" %><br />
+  <div id="datetimepicker">
+    <%= e.text_field :starting_at,  order: [:day , :month, :year],  start_hour: DateTime.now.hour-DateTime.now.hour, end_hour: 23, class: "form-control" %><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+    <br />
+  </div>
+
   <%= e.label :ending_at, "Eind tijd en datum:" %><br /><%= e.datetime_select :ending_at, order: [:day , :month, :year]%><br />
   <p><%= e.label :repeat, "Herhalende activiteit?" %></br>
   <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %><%= e.label(:repeat_none, "Eenmalig") %> <br />
@@ -12,6 +17,6 @@
   <% if current_page?('edit_event_path') %>
   <%= e.submit "Activteit wijzigen" %>
   <% else %>
-  <%= e.submit "Activteit toevoegen" %>
+  <%= e.submit "Activteit toevoegen", class: 'btn btn-primary' %>
   <% end %>
 <% end %>

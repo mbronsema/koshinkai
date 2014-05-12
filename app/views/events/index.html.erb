@@ -1,14 +1,26 @@
 <h1>Koshinkai agenda</h1>
+<h2>De eerste pagina verder uitwerken door...</h2>
 <div id="calendar"></div>
 
 <div>
+  <strong>Een leuk verhaaltje.......</strong><br />
+  Er was eens een krijger genaamd Koshin, deze krijger zocht naar een weg <br />
+  voor verniewing en kracht om de vijand uit te schakkelen zonder ernistige <br />
+  verwondingen toe te brengen. De krijger die door zijn zoektocht de ere <br />
+  titel Kai heeft verkregen staat nu bekend onder de naam KoshinKai.<br />
+</div>
+<br/>
+<br/>
+<div>
   <strong>Activiteiten</strong><br/>
 <% @events.each do |event| %>
-<%= link_to event.title, event %> <%= link_to 'verwijderen', event, method: :delete %> <%= link_to event.title, event_with_title_path(event, :title => event.title) %><br />
+<%= link_to event.title, event %> <%= link_to 'verwijderen', event, method: :delete %><br />
 <% end %>
 </div>
 <br /><br />
 <%= link_to 'Een nieuwe activiteit aanmaken', new_event_path %><br />
 
+Of meteen hier op en dan displaynone z-index 1 en met jquery/coffeescript laten zien slideDown ofzo<br />
 
 
+<%= render 'form' %>
