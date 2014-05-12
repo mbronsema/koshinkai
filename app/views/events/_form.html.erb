@@ -4,7 +4,7 @@
   <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %><br />
   <%= e.label :starting_at, "Begin tijd en datum:" %><br />
   <div id="datetimepicker">
-    <%= e.text_field :starting_at,  order: [:day , :month, :year],  start_hour: DateTime.now.hour-DateTime.now.hour, end_hour: 23, class: "form-control" %><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+    <%= e.text_field :starting_at, :data => {:format =>"DD-MM-YYYY hh:mm"}, class: "form-control" %><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
     <br />
   </div>
 

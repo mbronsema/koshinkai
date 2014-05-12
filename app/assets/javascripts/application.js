@@ -21,7 +21,12 @@
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     'use strict'
-	$('#datetimepicker').datetimepicker();
+	$('#datetimepicker').datetimepicker({
+		language: 'nl-NL',
+		format: 'YYYY-MM-DD hh:mm',
+		pick12HourFormat: true,
+		showToday: true	
+	});
 
     $('#calendar').fullCalendar({
     	eventSources:[
