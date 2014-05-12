@@ -1,12 +1,11 @@
 
-<%= form_for(@event, html: { role: 'form'}) do |e| %>
+<%= t('hello')  %>
+<%= form_for(@event, html: { role: 'form', class: 'form-horizontal well col-md-5'}) do |e| %>
   <%= e.label :title, "Titel" %><br /> <%= e.text_field :title %><br />
   <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %><br />
-  <%= e.label :starting_at, "Begin tijd en datum:" %><br />
-  <div id="datetimepicker">
-    <%= e.text_field :starting_at, :data => {:format =>"DD-MM-YYYY hh:mm"}, class: "form-control" %><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-    <br />
-  </div>
+ 
+  <span class="input-group-addon"> <%= e.label :starting_at, "Begin tijd en datum:" %> <span class="glyphicon glyphicon-calendar"><%= e.text_field :starting_at, 'data-behaviour' => 'datepicker' %></span></span>
+
 
   <%= e.label :ending_at, "Eind tijd en datum:" %><br /><%= e.datetime_select :ending_at, order: [:day , :month, :year]%><br />
   <p><%= e.label :repeat, "Herhalende activiteit?" %></br>

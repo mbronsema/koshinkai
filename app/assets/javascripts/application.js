@@ -21,10 +21,11 @@
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     'use strict'
-	$('#datetimepicker').datetimepicker({
-		language: 'nl-NL',
+	 $('[data-behaviour~=datepicker]').datetimepicker({
+		language: 'nl',
 		format: 'YYYY-MM-DD hh:mm',
-		pick12HourFormat: true,
+		maskInput: true,
+		pick12HourFormat: false,
 		showToday: true	
 	});
 
