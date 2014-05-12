@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   resources :events
-
+  resources :categories
 
   get '/events/:id/:title', to: 'events#show', as: 'event_with_title'
   # The priority is based upon order of creation: first created -> highest priority.

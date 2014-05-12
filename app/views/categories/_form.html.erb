@@ -1,0 +1,5 @@
+<%= form_for @category do |c| %>
+<%= c.label :menuname, "Menu naam" %><br /> <%= c.select(:menuname, options_for_select(['Home', 'Koshinkai', 'Informatie', 'Wat is aikido', 'Media', 'Contact'])) %><br />
+<%= c.label :submenuname, "Submenu naam" %><br /> <%= c.text_field :submenuname %><br />
+<%= c.submit %>
+<% end %>
