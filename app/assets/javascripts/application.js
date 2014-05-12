@@ -10,15 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require moment
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datetimepicker
 //= require fullcalendar
 //= require turbolinks
 //= require_tree .
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     'use strict'
+	$('#datetimepicker').datetimepicker();
+
     $('#calendar').fullCalendar({
     	eventSources:[
     		{
