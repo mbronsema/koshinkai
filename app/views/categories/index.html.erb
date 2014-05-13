@@ -1,13 +1,10 @@
 <% a = ['Home', 'Koshinkai', 'Informatie', 'Wat is aikido', 'Media', 'Contact'] %>
-
 <ul>
   <% a.each do |b| %>
     <li><%= b %>
       <% @categories.each do |c| %>
         <% if b == c.menuname %>
-        <ul><li><%= link_to c.submenuname, c.submenuname %></li></ul>
-      
-        
+         <ul><li><%= link_to menu.submenuname,  m_path%></li></ul>
         <% end %>
       <% end %>
     </li>

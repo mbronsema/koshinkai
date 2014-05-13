@@ -11,8 +11,6 @@ class CategoriesController < ApplicationController
     end
     end
 
-   
-
 
   def new
     @category = Category.new

@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<ul>
+  <% @a.each do |b| %>
+    <li><%= b %>
+      <% @menu.each do |menu| %>
+        <% if b == menu.menuname %>
+        <ul><li>
+        <%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %>
+      </li></ul>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+<ul>
 <%= yield %>
-
 </body>
 </html>
