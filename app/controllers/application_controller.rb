@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   def fetch_menu
     @menu = Category.all
+    @d = {Home: root_path, Prijzen: '#', Aikido: '#',Koshinkai: '#', Agenda: events_path, Media: '#', Contact: '#'}
     @a = ['Home', 'Prijzen', 'Aikido','Koshinkai', 'Agenda', 'Media', 'Contact']
   end
 end
