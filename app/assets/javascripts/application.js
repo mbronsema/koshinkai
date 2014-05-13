@@ -15,8 +15,8 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap
-//= require bootstrap-datetimepicker
 //= require moment
+//= require bootstrap-datetimepicker
 //= require moment/nl
 //= require locales/bootstrap-datetimepicker.nl.js
 //= require fullcalendar
