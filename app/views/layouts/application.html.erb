@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<ul>
+<ul class="nav nav-pills">
   <% @a.each do |b| %>
     <li><%= b %>
       <% @menu.each do |menu| %>
@@ -19,7 +19,7 @@
       <% end %>
     </li>
   <% end %>
-<ul>
+</ul>
 <%= yield %>
 </body>
 </html>
