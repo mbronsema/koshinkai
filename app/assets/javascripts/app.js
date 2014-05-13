@@ -1,8 +1,8 @@
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     'use strict'
-
-	 $('[data-behaviour~=datepicker]').datetimepicker({
+    $('form textarea').editable({inlineMode:false, height: 300});
+	$('[data-behaviour~=datepicker]').datetimepicker({
 		format: 'YYYY-MM-DD hh:mm',
 		maskInput: true,
 		pick12HourFormat: false,

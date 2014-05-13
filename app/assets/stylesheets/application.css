@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
+ *= require froala-wysiwyg/css/font-awesome.scss
+ *= require froala-wysiwyg/css/froala_editor.scss
  *= require bootstrap
  *= require bootstrap-datetimepicker
 */
