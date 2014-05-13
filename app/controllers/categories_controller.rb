@@ -1,17 +1,10 @@
 class CategoriesController < ApplicationController
   respond_to :html, :json
-  def index
-    @categories = Category.all
-    respond_with @categorys
-  end
-
   def show
     unless @category = Category.find_by_submenuname(params[:submenuname])
-      redirect_to categories_path
+      redirect_to root_path
     end
-    end
-
-
+  end
   def new
     @category = Category.new
   end

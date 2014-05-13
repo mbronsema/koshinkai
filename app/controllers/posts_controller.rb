@@ -6,6 +6,12 @@ class PostsController < ApplicationController
     respond_with @posts
   end
 
+  def home
+      @posts = Post.all
+      @events = Event.all
+      
+  end
+
   def show
     @post = Post.find(params[:id])
     respond_with @post
