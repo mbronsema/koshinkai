@@ -61,7 +61,7 @@ GEM
     minitest (5.3.3)
     momentjs-rails (2.5.1)
       railties (>= 3.1)
-    multi_json (1.9.3)
+    multi_json (1.10.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -141,7 +141,7 @@ GEM
       coffee-rails
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2014.2)
+    tzinfo-data (1.2014.3)
       tzinfo (>= 1.0.0)
     uglifier (2.5.0)
       execjs (>= 0.3.0)

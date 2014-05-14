@@ -1,5 +1,5 @@
 <h1> <%= @post.title %> </h1>
-c<%= @post.content %><br />
-a<%= @post.approved %><br />
-p<%= @post.prive %><br />
-ci<%= @post.category_id %>
+<%= sanitize  @post.content, tags: ['p', 'em', 'u', 'strong'] %><br />
+Akkoord: <%= @post.approved %><br />
+Prive: <%= @post.prive %><br />
+Category id<%= @post.category_id %>
