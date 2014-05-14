@@ -8,9 +8,8 @@ class ApplicationController < ActionController::Base
 			I18n.locale = params[:locale] || I18n.default_locale
 		end
 
-  def fetch_menu
+   def fetch_menu
     @menu = Category.all
-    @d = {Home: root_path, Prijzen: '#', Aikido: '#',Koshinkai: '#', Agenda: events_path, Media: '#', Contact: '#'}
-    @a = ['Home', 'Prijzen', 'Aikido','Koshinkai', 'Agenda', 'Media', 'Contact']
+    @mainmenu = {'Home' => root_path, 'Prijzen' => '#', 'Aikido' => '#','Koshinkai' => '#', 'Agenda' => events_path, 'Media' => '#', 'Contant' => '#'}
   end
 end

@@ -8,16 +8,20 @@
 </head>
 <body>
 <ul class="nav nav-pills">
-  <% @d.each do |b, c| %>
-    <li class="dropdown ">    
-    	<a href="<%= c %>" class="dropdown-toggle" data-toggle="dropdown"><%= b %></a>
-      	<% @menu.each do |menu| %>
-        	<% if b == menu.menuname %>
-        	<ul class="dropdown-menu">
-        		<li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
-        	</ul>
-        	<% end %>
-      	<% end %>
+  <% @mainmenu.each do |key, value| %>
+    <li class="dropdown ">  
+    <% if value == '#' %>
+      <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %> 
+    <% else %>
+      <%= link_to key, value, class: 'dropdown-toggle' %> 
+    <% end %>
+        <% @menu.each do |menu| %>
+          <% if key == menu.menuname %>
+          <ul class="dropdown-menu">
+            <li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
+          </ul>
+          <% end %>
+        <% end %>
     </li>
   <% end %>
 </ul>
