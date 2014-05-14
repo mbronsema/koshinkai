@@ -1,7 +1,10 @@
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     'use strict'
-    $('form textarea').editable({inlineMode:false, height: 300});
+    // Froala editor initialising
+    $('form textarea').editable({inlineMode:false, height: 300,
+                                buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color']});
+    // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
 		format: 'YYYY-MM-DD hh:mm',
 		maskInput: true,
@@ -9,7 +12,7 @@ $(document).ready(function() {
 		showToday: true,
 		language: 'nl'
 	});
-
+    // Initialise the fullcalendar
     $('#calendar').fullCalendar({
     	eventSources:[
     		{

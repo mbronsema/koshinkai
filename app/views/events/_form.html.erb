@@ -3,14 +3,16 @@
 <p class="bg-primary col-md-12 large"><%= t('hello')  %></p>
 
 <%= form_for(@event, html: { role: 'form', class: 'form-horizontal well col-md-12'}) do |e| %>
-  <%= e.label :title, "Titel" %><br /> <%= e.text_field :title, class: "form-control" %><br />
-  <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message, class: "form-control" %><br />
- 
-  <span class="input-group-addon"> <%= e.label :starting_at, "Begin tijd en datum:" %> <span class="glyphicon glyphicon-calendar"> <%= e.text_field :starting_at, 'data-behaviour' => 'datepicker' %></span></span><br/>
+  <%= e.label :title, "Titel" %><br /> <%= e.text_field :title, class: "form-control" %>
+    <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %>
+    <span class="input-group-addon"> 
+      <%= e.label :starting_at, "Begin tijd en datum:" %> <span class="glyphicon glyphicon-calendar"> <%= e.text_field :starting_at, 'data-behaviour' => 'datepicker' %></span>
+      </span>
 
 
   <span class="input-group-addon"> <%= e.label :ending_at, "Eind tijd en datum:" %>  <span class="glyphicon glyphicon-calendar">  
   <%= e.text_field :ending_at, 'data-behaviour' => 'datepicker'%></span></span>
+
   <p><%= e.label :repeat, "Herhalende activiteit?" %></br>
   <div class="radio">
     <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %> <%= e.label(:repeat_none, "Eenmalig") %> <br />
