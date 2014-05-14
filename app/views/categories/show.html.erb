@@ -1,6 +1,6 @@
 <h1><%= @category.submenuname %></h1>
 check if logged in moet hier komen<br />
-<%= link_to 'Nieuw '+@category.submenuname+ ' bericht tovoegen', new_post_path %>
+<%= link_to 'Nieuw '+@category.submenuname+ ' bericht tovoegen', catpost_path %>
 <% @category.posts.each do |p| %>
 <h2><%= p.title %> </h2>
 Gemaakt op <%= p.created_at.strftime('%d-%m-%Y') %><br />
