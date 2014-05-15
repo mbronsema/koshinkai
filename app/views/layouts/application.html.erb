@@ -8,13 +8,32 @@
 </head>
 <body>
 <div class="container">
+<!-- Nieuwe menu -->
+<ul class="nav nav-pills">
+  <% @mainmenu.each do |key, value| %>
+    <li class="dropdown">
+      <%= link_to key, value, class: "dropdown-toggle", "data-toggle" => "dropdown"%>
+        <% if @menu.length > 0 %>
+        <ul class="dropdown-menu">
+          <% @menu.each do |menu| %>
+            <%if key == menu.menuname %>
+            <li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        <% end %>
+
+    </li>
+  <% end %>
+</ul>
+<!-- Oude menu -->
 <ul class="nav nav-pills">
   <% @mainmenu.each do |key, value| %>
     <li class="dropdown ">  
     <% if value == '#' %>
       <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %> 
     <% else %>
-      <%= link_to key, value, class: 'dropdown-toggle' %> 
+      <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %> 
     <% end %>
           <ul class="dropdown-menu">
        <% @menu.each do |menu| %>
@@ -28,22 +47,8 @@
     </li>
   <% end %>
 </ul>
-<div class="btn-group">
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div>
-</div>
+
 <%= link_to 'Nieuwe subcategorie maken', new_category_path %>
-
-
-
 <%= yield %>
 </div>
 </body>
