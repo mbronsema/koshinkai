@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 <ul class="nav nav-pills">
   <% @mainmenu.each do |key, value| %>
     <li class="dropdown ">  
@@ -15,8 +16,8 @@
     <% else %>
       <%= link_to key, value, class: 'dropdown-toggle' %> 
     <% end %>
-        <% @menu.each do |menu| %>
-         <ul class="dropdown-menu">
+          <ul class="dropdown-menu">
+       <% @menu.each do |menu| %>
           <% if key == menu.menuname %>
         
             <li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
@@ -44,5 +45,6 @@
 
 
 <%= yield %>
+</div>
 </body>
 </html>
