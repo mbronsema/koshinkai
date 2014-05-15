@@ -4,8 +4,15 @@
 			<div class="panel-body">
 				
 				<h2>Nieuws</h2>
+<<<<<<< HEAD
 					<br />
 					
+=======
+					<%= @post.title %><br />
+					Gemaakt op <%= @post.created_at.strftime('%d-%m-%Y') %><br />
+					<%= sanitize @post.content, tags: ['p', 'em', 'u', 'strong'] %>
+				
+>>>>>>> FETCH_HEAD
 			</div>
 		</div>
 	</div>
