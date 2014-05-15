@@ -9,12 +9,18 @@ class PostsController < ApplicationController
   def home
       @event = Event.last(3)
       @eventchanged = Event.all
+<<<<<<< HEAD
 
       if @category = Category.find_by_submenuname('Nieuws')
       @post = Post.where(:category_id => @category.id).last(2)
     else
       @post = Post.all
     end
+=======
+      @category = Category.find_by_submenuname('Nieuws')
+
+      @post = Post.where(:category_id => @category.id)
+>>>>>>> 30f1763edfaf4b2d96487765db84792cbd1d67ea
     end
 
   def show
