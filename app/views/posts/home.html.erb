@@ -1,1 +1,79 @@
-<h1>Test</h1>
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				
+				<h2>Nieuws</h2>
+					<br />
+					
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<h2>Activiteiten</h2>
+				<% @event.each do |e| %>
+				<%= e.title %><br />
+				<%= e.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
+				<%= e.ending_at.strftime('%d-%m-%Y om %H:%M.') %><br />
+				<%= sanitize e.message, tags: ['p', 'em', 'u', 'strong'] %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+			<h2>Wijzigingen</h2>
+			<% @eventchanged.each do |e| %>
+			<% unless e.updated_at == e.created_at %>
+				<%= e.title %><br />
+				<%= e.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
+				<%= e.ending_at.strftime('%d-%m-%Y om %H:%M.') %><br />
+				<%= sanitize e.message, tags: ['p', 'em', 'u', 'strong'] %>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+	</div>
+</div>

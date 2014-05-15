@@ -18,6 +18,22 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def postnew 
+    @category = Category.find_by_submenuname(params[:submenuname])
+    @post = Post.new
+  end
+
+  def postcreate
+    @category = Category.find_by_submenuname(params[:submenuname])
+    @post = Post.new(post_params)
+    @post.category_id = @category.id
+    if @post.save
+      redirect_to submenu_path
+    else
+      render 'postnew'
+    end
+  end
+
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
@@ -27,5 +43,9 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit(:menuname, :submenuname)
+  end
+
+   def post_params
+    params.require(:post).permit(:title, :content, :prive, :approved, :user_id, :category_id)
   end
 end

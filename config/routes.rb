@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
 
-  get '/:menuname/:submenuname', to: 'categories#show'
-
-  #match '/:menuname/:submenuname' => 'categories#show', :via => :get
+  get '/:menuname/:submenuname', to: 'categories#show', as: 'submenu'
+  get '/:menuname/:submenuname/postnew', to: 'categories#postnew', as: 'catpost' 
+  match '/:menuname/:submenuname/postcreate' => 'categories#postcreate', :via => :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
