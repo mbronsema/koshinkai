@@ -13,10 +13,12 @@ respond_to :html, :json
 
 	def new
 		@event = Event.new
+    authorize @event
 	end
 
 	def create
 		@event = Event.new(event_params)
+    authorize @event
 		if @event.save
 			redirect_to @event
 		else
