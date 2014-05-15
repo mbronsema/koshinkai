@@ -7,10 +7,11 @@ class PostsController < ApplicationController
   end
 
   def home
-      @posts = Post.all
-      @events = Event.all
-      
-  end
+      @event = Event.last(3)
+      @eventchanged = Event.all
+      @category = Category.find_by_submenuname('Nieuws')
+      @post = Post.where(:category_id => @category.id).last
+    end
 
   def show
     @post = Post.find(params[:id])
