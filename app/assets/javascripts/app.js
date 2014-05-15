@@ -4,6 +4,7 @@ $(document).ready(function() {
     // Froala editor initialising
     $('form textarea').editable({inlineMode:false, height: 300,
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color']});
+    $("header").fitVids();
     // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
 		format: 'YYYY-MM-DD hh:mm',

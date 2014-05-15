@@ -33,6 +33,7 @@ gem 'rails-assets-bootstrap'
 gem 'rails-assets-froala-wysiwyg'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
+gem 'rails-assets-fitvids'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

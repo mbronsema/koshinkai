@@ -78,6 +78,8 @@ GEM
       sprockets-rails (~> 2.0)
     rails-assets-bootstrap (3.1.1)
       rails-assets-jquery (>= 1.9.0)
+    rails-assets-fitvids (1.1.0)
+      rails-assets-jquery (>= 1.7.0)
     rails-assets-froala-wysiwyg (1.1.4)
       rails-assets-jquery (>= 1.10.2)
     rails-assets-fullcalendar (1.6.4)
@@ -160,6 +162,7 @@ DEPENDENCIES
   momentjs-rails (~> 2.5.0)
   rails (= 4.1.0)
   rails-assets-bootstrap
+  rails-assets-fitvids
   rails-assets-froala-wysiwyg
   rails-assets-fullcalendar
   rspec-rails (~> 3.0.0.beta)
