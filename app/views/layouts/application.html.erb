@@ -16,16 +16,29 @@
       <%= link_to key, value, class: 'dropdown-toggle' %> 
     <% end %>
         <% @menu.each do |menu| %>
+         <ul class="dropdown-menu">
           <% if key == menu.menuname %>
-          <ul class="dropdown-menu">
+        
             <li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
-          </ul>
           <% end %>
+          </ul>
+
         <% end %>
     </li>
   <% end %>
 </ul>
-
+<div class="btn-group">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+</div>
 <%= link_to 'Nieuwe subcategorie maken', new_category_path %>
 
 
