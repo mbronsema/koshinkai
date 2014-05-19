@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     authorize @users
   end
 
+  def new
+   @user = User.new(params[:id])
+  end
+  
   def show
     @user = User.find(params[:id])
     unless current_user.admin?
@@ -40,8 +44,9 @@ class UsersController < ApplicationController
   private
 
   def secure_params
-    params.require(:user).permit(:role)
+    params.require(:user).permit(:role, :avatar,:remove_avatar)
   end
+
 
 end
 
