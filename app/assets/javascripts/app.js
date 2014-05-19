@@ -15,6 +15,12 @@ $(document).ready(function() {
 	});
     // Initialise the fullcalendar
     $('#calendar').fullCalendar({
+        eventClick: function(calEvent, jsEvent, view) {
+            console.log(calEvent);
+            console.log(jsEvent);
+            console.log(view);
+            window.location = "http://localhost:3000/events/" + calEvent.id;
+        },
     	eventSources:[
     		{
     			url: '/events',

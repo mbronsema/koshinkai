@@ -7,7 +7,7 @@ class EventPolicy < Struct.new(:user, :event)
     end
   
     def create?
-     user.vip?
+     user.admin?
     end
    
     def index?
