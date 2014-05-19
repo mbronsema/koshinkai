@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
     // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
-		format: 'YYYY-MM-DD hh:mm',
+		format: 'YYYY-MM-DD HH:mm',
 		maskInput: true,
 		pick12HourFormat: false,
 		showToday: true,
