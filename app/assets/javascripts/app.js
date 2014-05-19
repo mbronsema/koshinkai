@@ -7,7 +7,6 @@ $(document).ready(function() {
     $("header").fitVids();
     $('.nav li.dropdown a').hover( function(e){
         console.log($(this, 'ul.dropdown-menu'));
-        $(this,'ul.dropdown-menu').toggleClass('active');
     });
     // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
