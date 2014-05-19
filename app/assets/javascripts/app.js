@@ -16,13 +16,15 @@ $(document).ready(function() {
 		showToday: true,
 		language: 'nl'
 	});
+
     // Initialise the fullcalendar
     $('#calendar').fullCalendar({
         eventClick: function(calEvent, jsEvent, view) {
+            var loc = self.location;
             console.log(calEvent);
             console.log(jsEvent);
             console.log(view);
-            window.location = "http://localhost:3000/events/" + calEvent.id;
+            window.location = loc['host'] + "/events/" + calEvent.id;
         },
     	eventSources:[
     		{
