@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  before_filter :authenticate_user!, except: [:home]
  respond_to :html, :json
   def index
     @posts = Post.all
