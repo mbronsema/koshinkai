@@ -5,6 +5,10 @@ $(document).ready(function() {
     $('form textarea').editable({inlineMode:false, height: 300,
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color']});
     $("header").fitVids();
+    $('.nav li.dropdown a').hover( function(e){
+        console.log($(this, 'ul.dropdown-menu'));
+        $(this,'ul.dropdown-menu').toggleClass('active');
+    });
     // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
 		format: 'YYYY-MM-DD hh:mm',
