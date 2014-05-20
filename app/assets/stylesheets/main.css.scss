@@ -4,12 +4,15 @@ header{
 	background-image: url('http://placekitten.com/960/350');
 	background-size: 960px 350px;
 	height: 350px;
+	display: block;
 }
-ul.menu {
+nav.menu {
+		border-bottom: 10px solid $menu-tab-color;
+	ul{
 		padding: 0;
 		list-style-type: none;
 		margin-top: 10px;
-		border-bottom: 10px solid $menu-tab-color;
+		margin: 0 auto;
 	li{
 		border-radius-top-right: 5px;
 		border-radius-top-left:  5px;
@@ -27,10 +30,21 @@ ul.menu {
 			}
 		}
 	}
+	}
 }
 /*
 * Awesomesauce!
 */
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	
+	border-top: 150px solid #dadcdb;
+	z-index: 10000;
+	margin-bottom: -100px;
+}
 section#profile{
 	border: 1px solid black;
 	padding: 10px 0;
@@ -42,4 +56,18 @@ section#profile{
 		height: auto;
 
 	}
+}
+#maps{
+	height: 400px;
+	z-index: -1;
+	width: 95%;
+	display: block;
+	margin: 0 auto;
+
+}
+footer{
+	background-color: $menu-tab-color;
+	display: block;
+	height: 300px;
+	width: 100%;
 }
