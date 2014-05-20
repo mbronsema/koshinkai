@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require gmaps
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require fitvids
