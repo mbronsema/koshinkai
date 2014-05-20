@@ -1,0 +1,21 @@
+$menu-tab-color: #c79b6a;
+ul.menu {
+	padding: 0;
+	list-style-type: none;
+	border-bottom: 10px solid $menu-tab-color;
+	li{
+		display: inline-block;
+		min-width: 65px;
+		margin: 0 25px;
+		a{
+			color: black;
+			text-align: center;
+		}
+		&:hover{
+			background-color: $menu-tab-color;
+			a{
+				color: white;
+			}
+		}
+	}
+}

@@ -31,11 +31,13 @@ group :development, :test do
 end
 # Assets
 gem 'rails-assets-fullcalendar'
-gem 'rails-assets-bootstrap'
+#gem 'rails-assets-bootstrap'
 gem 'rails-assets-froala-wysiwyg'
 gem 'momentjs-rails', '~> 2.5.0'
+gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'rails-assets-fitvids'
+gem 'compass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

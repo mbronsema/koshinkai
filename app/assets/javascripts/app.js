@@ -24,7 +24,7 @@ $(document).ready(function() {
             console.log(calEvent);
             console.log(jsEvent);
             console.log(view);
-            window.location = loc['host'] + "/events/" + calEvent.id;
+            window.location = "http://localhost:3000/events/" + calEvent.id;
         },
     	eventSources:[
     		{
