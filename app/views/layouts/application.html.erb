@@ -7,18 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<article class="container">
   <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-<%= link_to('logout', destroy_user_session_path, :method => :delete) %>
-
-<div class="container"><% if user_signed_in? %>
-	<%= link_to('logout', destroy_user_session_path, :method => :delete) %>
-	<%= image_tag(current_user.avatar_url) if current_user.avatar? %>
-
+<header class="">
+<% if user_signed_in? %>
+  <section id="profile" class="col-md-3">
+    <%= image_tag(current_user.avatar_url, :class => "avatar col-md-6") if current_user.avatar? %>
+    <ul class="col-md-6 profile_links">
+      <li><%= link_to('logout', destroy_user_session_path, :method => :delete, :class => "profile_logout btn btn-mini btn-danger ") %></li>
+    </ul>
+  </section>
+</header>
 
 	<% end %>
-	
-<div class="row">
+  <div class="row">
 </div>
 <!-- Nieuwe menu -->
 <ul class="menu">
@@ -45,5 +48,6 @@
 <%= link_to 'Nieuwe subcategorie maken', new_category_path %>
 <%= yield %>
 </div>
+</article>
 </body>
 </html>
