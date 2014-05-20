@@ -2,32 +2,35 @@
 <html>
 <head>
   <title>Koshinkai</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true&.js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-<%= link_to('logout', destroy_user_session_path, :method => :delete) %>
+<section id="header" >
+  <header >
+    <p class="notice"><%= notice %></p><p class="alert"><%= alert %></p>
 
-<div class="container"><% if user_signed_in? %>
-	<%= link_to('logout', destroy_user_session_path, :method => :delete) %>
-	<%= image_tag(current_user.avatar_url) if current_user.avatar? %>
+  <% if user_signed_in? %>
+    <section id="profile" class="col-md-3">
+      <%= image_tag(current_user.avatar_url, :class => "avatar col-md-6") if current_user.avatar? %>
+      <ul class="col-md-6 profile_links">
+        <li><%= link_to('logout', destroy_user_session_path, :method => :delete, :class => "profile_logout btn btn-mini btn-danger ") %></li>
+      </ul>
+    </section>
+    <% end %>
 
-
-	<% end %>
-	
-<div class="row">
-</div>
-<!-- Nieuwe menu -->
-<ul class="menu">
+  </header>
+  <!-- Nieuwe menu -->
+  <nav class="menu">
+  <ul class="container">
   <% @mainmenu.each do |key, value| %>
     <li class="dropdown">
       <% if value == '#' %>
-      <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %> 
+      <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %>
     <% else %>
-      <%= link_to key, value, class: 'dropdown-toggle'%> 
+      <%= link_to key, value, class: 'dropdown-toggle'%>
     <% end %>
         <% if @menu.length > 0 %>
         <ul class="dropdown-menu">
@@ -41,9 +44,21 @@
 
     </li>
   <% end %>
-</ul>
+  </ul>
+  </nav>
+</section>
+<article class="container">
+
+<section>
 <%= link_to 'Nieuwe subcategorie maken', new_category_path %>
 <%= yield %>
-</div>
+</section>
+</article>
+
+<section class="row">
+  <div id="maps" ></div>
+
+</section>
+<footer></footer>
 </body>
 </html>

@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'attachments/index'
+
   devise_for :users
   resources :users
   resources :posts
   resources :events
   resources :categories
+  resources :attachments
 
   get '/:menuname/:submenuname', to: 'categories#show', as: 'submenu'
   get '/:menuname/:submenuname/postnew', to: 'categories#postnew', as: 'catpost' 

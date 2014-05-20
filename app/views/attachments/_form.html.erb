@@ -1,0 +1,6 @@
+<%= form_for @attachment do |a| %>
+<%= a.label :title, "Titel" %><br /> <%= a.text_field :title %><br />
+<%= a.label :description, "Titel" %><br /> <%= a.text_area :description %><br />
+<%= a.label :file, "Bestand" %><br /> <%= a.file_field :file %><br />
+<%= a.submit %>
+<% end %>
