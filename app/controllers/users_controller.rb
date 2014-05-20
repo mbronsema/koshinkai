@@ -40,13 +40,4 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
-
-  private
-
-  def secure_params
-    params.require(:user).permit(:role, :avatar,:remove_avatar)
-  end
-
-
 end
-

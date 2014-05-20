@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_filter :fetch_menu
   protect_from_forgery with: :exception
-	
+  
+  before_action :update_sanitized_params, if: :devise_controller?
+
   before_action :set_locale
 		def set_locale
 			I18n.locale = params[:locale] || I18n.default_locale
@@ -25,8 +27,23 @@ class ApplicationController < ActionController::Base
   #  devise_parameter_sanitizer.for(:account_update) << :name
   #end
   
+  def update_sanitized_params
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:password_confirmation ,:password ,:email, :role, :avatar, :avatar_cache, :remove_avatar)}
+  end
+  
+  
   def user_not_authorized
     flash[:alert] = "Access denied."
     redirect_to (request.referrer || root_path)
   end
 end
+
+
+
+
+
+
+
+  
+
+
