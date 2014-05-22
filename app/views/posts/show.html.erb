@@ -1,5 +1,10 @@
 <h1> <%= @post.title %> </h1>
-<%= sanitize  @post.content, tags: ['p', 'em', 'u', 'strong'] %><br />
+<% a = @post.content.match('https?:\/\/www.youtube.com\/watch\?v=(?<youtube_id>[^ ]+)')  %>
+<% d = @post.content.match('https?:\/\/www.youtube.com\/watch\?v=?[^ ]+')  %>
+<% w = '</span></p><embed width="420" height="345" src="http://www.youtube.com/v/' + a[:youtube_id]  + '" type="application/x-shockwave-flash" allowfullscreen="true"></embed><p><span> ' %>
+<% dd = @post.content.gsub(d[0], w) %>
+<%= sanitize dd, tags: ['p', 'em', 'u', 'strong', 'embed', 'span'] %>
+
 Akkoord: <%= @post.approved %><br />
 Prive: <%= @post.prive %><br />
 Category id<%= @post.category_id %>
