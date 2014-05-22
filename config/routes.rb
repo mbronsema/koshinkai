@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'lesmateriaals/index'
+  
+  resources :lesmateriaals
+
+
   get 'attachments/index'
 
   devise_for :users
@@ -8,6 +13,7 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
+
 
   get '/:menuname/:submenuname', to: 'categories#show', as: 'submenu'
   get '/:menuname/:submenuname/postnew', to: 'categories#postnew', as: 'catpost' 
