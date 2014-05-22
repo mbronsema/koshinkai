@@ -7,7 +7,7 @@
     <% else %>
       <%= link_to key, value, class: 'dropdown-toggle'%>
     <% end %>
-        <% if @menu.length > 0 %>
+        <% if @menu.length > 1 %>
         <ul class="dropdown-menu">
           <% @menu.each do |menu| %>
             <%if key == menu.menuname %>
