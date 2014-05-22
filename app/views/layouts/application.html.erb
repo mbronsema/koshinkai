@@ -23,29 +23,7 @@
 
   </header>
   <!-- Nieuwe menu -->
-  <nav class="menu">
-  <ul class="container">
-  <% @mainmenu.each do |key, value| %>
-    <li class="dropdown">
-      <% if value == '#' %>
-      <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %>
-    <% else %>
-      <%= link_to key, value, class: 'dropdown-toggle'%>
-    <% end %>
-        <% if @menu.length > 0 %>
-        <ul class="dropdown-menu">
-          <% @menu.each do |menu| %>
-            <%if key == menu.menuname %>
-            <li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
-            <% end %>
-          <% end %>
-        </ul>
-        <% end %>
-
-    </li>
-  <% end %>
-  </ul>
-  </nav>
+  <%= render "layouts/menu" %>
 </section>
 <article class="container">
 
