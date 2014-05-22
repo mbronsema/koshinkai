@@ -1,5 +1,5 @@
 <h1><%= @attachment.title %></h1>
 <%= image_tag(@attachment.file_url) if @attachment.file? %><br />
 
-Gepost door:<br />
-<h1><%= @user.email %></h1>
+Geplaatst door:<br />
+<%= @user.email %>
