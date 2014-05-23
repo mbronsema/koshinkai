@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :adminpanels
   get 'lesmateriaals/index'
   
   resources :lesmateriaals
-
-
-  get 'attachments/index'
 
   devise_for :users
   resources :users
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
+
 
 
   get '/:menuname/:submenuname', to: 'categories#show', as: 'submenu'
