@@ -5,13 +5,15 @@
       <% if value == '#' %>
       <%= link_to key, value, class: 'dropdown-toggle', 'data-toggle' => 'dropdown' %>
     <% else %>
-      <%= link_to key, value, class: 'dropdown-toggle'%>
+    
+        
+      <%= link_to key, value, class: "dropdown-toggle", class: current(value) %>
     <% end %>
         <% if @menu.length > 1 %>
         <ul class="dropdown-menu">
           <% @menu.each do |menu| %>
             <%if key == menu.menuname %>
-            <li><%= link_to menu.submenuname, "/#{menu.menuname}/#{menu.submenuname}" %></li>
+            <li><%= link_to menu.submenuname, submenu_path(menu.menuname, menu.submenuname) , class: current(submenu_path(menu.menuname, menu.submenuname))  %></li>
             <% end %>
           <% end %>
         </ul>
