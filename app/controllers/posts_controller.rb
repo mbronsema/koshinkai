@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    respond_with @post
+   # respond_with @post
   end
 
   def new
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+   # @post.title.gsub!("dd", "aa")
     if @post.save
       redirect_to @post
     else

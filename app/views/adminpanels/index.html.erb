@@ -1,0 +1,31 @@
+<% #content_for :adminpanel do %>
+<div class="table-responsive">
+  <h2>Artikelen en berichten</h2>
+  <table class="table table-striped">
+    <tr><th>Titel</th><th>Aangenaakt op</th><th>Aangepast op</th><th>Aanpassen</th><th>Verwijderen</th></tr>
+    <% @posts.each do |p| %>
+      <tr><td><%= p.title %></td><td><%= DTformat p.created_at %></td><td><%= DTformat p.updated_at %></td></tr>
+    <% end %>
+  </table> 
+</div>
+
+<div class="table-responsive">
+  <h2>Activiteiten</h2>
+  <table class="table table-striped">
+    <tr><th>Titel</th><th>Aangenaakt op</th><th>Aangepast op</th><th>Aanpassen</th><th>Verwijderen</th></tr>
+    <% @events.each do |e| %>
+      <tr><td><%= e.title %></td><td><%= DTformat e.created_at %></td><td><%= DTformat e.updated_at %></td><td>Pas aan</td><td>Verwijder</td></tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="table-responsive">
+  <h2>Leden</h2>
+  <table class="table table-striped">
+    <tr><th>Email</th><th>Momenteel aangemeld op</th><th>Laatst aangemeld</th><th>Aanpassen</th><th>Verwijderen</th></tr>
+      <% @users.each do |u| %>
+    <tr><td><%= u.email %></td><td><%= DTformat u.current_sign_in_at %></td><td><%= DTformat u.last_sign_in_at %></td><td>Pas aan</td><td>Verwijder</td></tr>
+    <% end %>
+  </table>
+</div>
+<% #end %>

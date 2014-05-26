@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
+=======
+  resources :adminpanels
+  get 'lesmateriaals/index'
+>>>>>>> FETCH_HEAD
   
 
-
-
-  get 'attachments/index'
 
   devise_for :users
   resources :users
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
+
 
 
   get '/:menuname/:submenuname', to: 'categories#show', as: 'submenu'

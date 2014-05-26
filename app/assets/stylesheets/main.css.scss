@@ -1,36 +1,102 @@
 $menu-tab-color: #c79b6a;
+@import "compass";
 @import "frontend/sass/variables";
+
 header{
 	background-image: url('http://placekitten.com/960/350');
 	background-size: 960px 350px;
 	height: 350px;
 	display: block;
 }
+$highlight: #d9c10c;
+$highlight-text: #efebdf;
+$black: #000;
+$light: #efefef;
 nav.menu {
-		border-bottom: 10px solid $menu-tab-color;
-	ul{
-		padding: 0;
-		list-style-type: none;
-		margin-top: 10px;
-		margin: 0 auto;
-	li{
-		border-radius-top-right: 5px;
-		border-radius-top-left:  5px;
+	text-align: center;
+	border-bottom: 5px solid $menu-tab-color;
+	font-family: BebasNeueRegular, arial, sans;
+	font-size: 140%;
+	line-height: 1em;
+
+	/* Main menu items */
+	li {
 		display: inline-block;
-		min-width: 65px;
-		margin: 0 25px;
-		a{
-			color: black;
-			text-align: center;
-		}
-		&:hover{
-			background-color: $menu-tab-color;
-			a{
-				color: white;
+		position: relative;
+			&.current-page-item{
+				background-color: $highlight;
+				color: $light;
 			}
+		/* Space out the links */
+		a {
+			padding: 1em;
+			display: block;
+
+		}
+
+    	/* Hide sub menus & sub-sub menus
+     	* Position *underneath* originating li (see ul ul below) */
+		ul, ul ul {
+			display: none;
+			position: absolute;
+			z-index: 999;
+			top: 100%;
+			left: 0;
+			width: 12em;
+			background-color: adjust-lightness($menu-tab-color, -10);
+			@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
+					background-color: $menu-tab-color;
+		background-image: url('./martinb.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+
+		}
+
+    	/* Position sub-subs to right of parent li */
+		ul ul {
+			left:100%;
+			top: 0;
+			background-color: adjust-lightness($menu-tab-color, -15);
+
+		}
+
+	    /* Make sub & sub-sub li's fill parent ul
+     	* Add feint border to bottom to separate items */
+		li {
+			display: block;
+			border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
 		}
 	}
+
+	/* Highlight li on hover */
+	li:hover {
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		/* Change anchor colour to highlighted text */
+		> a {
+			color: $highlight-text;
+			background: none;
+		}
+
+		/* Display subs and sub-subs on parent hover */
+		> ul {
+			display: block;
+		}
+
+  	}
+
+	/* Don't display menus further than 3 deep in ul tree */
+	ul ul ul li:hover ul {
+		display: none;
 	}
+
+	/* Make sure no padding & margins round <ul>s.
+	 * Very likely to have been set in CSS for rest of site */
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+
 }
 /*
 * Awesomesauce!
