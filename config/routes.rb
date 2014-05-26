@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
 
   get '/:menuname/:submenuname', to: 'categories#show', as: 'submenu'
-  get '/:adminpanels', to: 'adminpanels#index', as: 'admin'
-  get '/zoeken', to: 'posts#search', as: 'search' 
+  get '/search', to: 'posts#search', as: 'search'
+  match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   get '/:menuname/:submenuname/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:menuname/:submenuname/postcreate' => 'categories#postcreate', :via => :post
   # The priority is based upon order of creation: first created -> highest priority.
