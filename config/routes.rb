@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'lesmateriaals/index'
   
-  resources :lesmateriaals
+
 
 
   get 'attachments/index'
