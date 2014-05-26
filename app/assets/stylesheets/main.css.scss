@@ -23,15 +23,15 @@ nav.menu {
 	li {
 		display: inline-block;
 		position: relative;
-
-		/* Space out the links */
-		a {
-			padding: 1em;
-			display: block;
 			&.current-page-item{
 				background-color: $highlight;
 				color: $light;
 			}
+		/* Space out the links */
+		a {
+			padding: 1em;
+			display: block;
+
 		}
 
     	/* Hide sub menus & sub-sub menus
