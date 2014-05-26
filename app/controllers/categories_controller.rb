@@ -27,6 +27,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by_submenuname(params[:submenuname])
     @post = Post.new(post_params)
     @post.category_id = @category.id
+    @post.user_id = current_user.id
     if @post.save
       redirect_to submenu_path
     else

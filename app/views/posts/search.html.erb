@@ -1,0 +1,4 @@
+<% @searchresults.each do |s| %>
+<%= s.title %><br />
+<%= sanitize s.content, tags: ['p', 'em', 'u', 'strong', 'embed', 'span'] %>
+<% end %>

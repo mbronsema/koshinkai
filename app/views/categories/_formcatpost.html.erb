@@ -2,7 +2,7 @@
 
 <%= form_for @post, :url => { :action => :postcreate } do |p| %>
 <%= p.label :title, "Titel" %><br /> <%= p.text_field :title, class: "form-control" %><br />
-<%= p.label :content, "Content" %><br /> <%= p.text_area :content, class: "form-control" %><br />
+<%= p.label :content, "Content - [video:youtubelink] - om youtube video te plaatsen" %><br /> <%= p.text_area :content, class: "form-control"%><br />
 <%= p.check_box :prive, {}, "true", "false" %>
 <%= p.label(:prive, "Prive") %><br />
 <%= p.check_box :approved, {}, "true", "false" %>

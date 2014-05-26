@@ -22,12 +22,10 @@ class AttachmentsController < ApplicationController
   def show
     @attachment = Attachment.find(params[:id])
     @user = User.find_by id: @attachment.user_id
-
-
   end
+
   private
-
-  def attach_params
-    params.require(:attachment).permit(:title, :description, :file, :user_id)
-  end
+    def attach_params
+      params.require(:attachment).permit(:title, :description, :file, :user_id)
+    end
 end

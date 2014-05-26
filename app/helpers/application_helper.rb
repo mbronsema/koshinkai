@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def DTformat(dt)
-    dt.strftime("%d-%m-%Y %H:%M")
+  def DTformat(dateandtime)
+    dateandtime.strftime("%d-%m-%Y %H:%M")
   end
 
   def current(path)

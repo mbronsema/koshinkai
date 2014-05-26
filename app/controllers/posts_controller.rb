@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:home]
  respond_to :html, :json
   def index
-    @posts = Post.all
-    respond_with @posts
+   redirect_to root_path
   end
 
   def home
@@ -17,8 +16,21 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-   # respond_with @post
+    if @post.prive
+      @post = Post.find(params[:id])
+      respond_with @post
+    else 
+     @post = Post.find(params[:id])
+    end
+  end
+
+  def search
+    if params[:search]
+      @searchresults = Post.search(params[:search]).order("created_at DESC").all
+      if @searchresults.length == 0
+        @searchresults = Post.order('created_at DESC').all
+      end
+    end
   end
 
   def new
@@ -27,7 +39,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-   # @post.title.gsub!("dd", "aa")
     if @post.save
       redirect_to @post
     else
