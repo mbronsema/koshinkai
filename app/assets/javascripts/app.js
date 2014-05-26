@@ -65,4 +65,5 @@ $(document).ready(function() {
     	]
     
     });
+       $(".current-page-item").parents('li, ul', this).addClass('current-page-item');
 });

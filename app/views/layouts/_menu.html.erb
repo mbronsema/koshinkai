@@ -13,7 +13,7 @@
         <ul class="dropdown-menu">
           <% @menu.each do |menu| %>
             <%if key == menu.menuname %>
-            <li><%= link_to menu.submenuname, submenu_path(menu.menuname, menu.submenuname) , class: current(submenu_path(menu.menuname, menu.submenuname))  %></li>
+            <li class="<%= current(submenu_path(menu.menuname, menu.submenuname))%>" ><%= link_to menu.submenuname, submenu_path(menu.menuname, menu.submenuname) %></li>
             <% end %>
           <% end %>
         </ul>
