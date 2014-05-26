@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-=======
   resources :adminpanels
-  get 'lesmateriaals/index'
->>>>>>> FETCH_HEAD
-  
-
 
   devise_for :users
   resources :users
