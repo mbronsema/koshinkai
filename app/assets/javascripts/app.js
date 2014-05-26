@@ -8,7 +8,6 @@ $(document).ready(function() {
       lat: mapsLat,
       lng: mapsLong
     });
-    $("li.current-page-item").closest("li.dropdown").addClass("current-page-item");
     maps.addMarker({
       lat: mapsLat,
       lng: mapsLong,
