@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require lightbox2
 //= require gmaps
 //= require jquery_ujs
 //= require jquery.turbolinks

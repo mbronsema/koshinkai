@@ -7,7 +7,7 @@
 					<% @post.each do |p| %>
 					<%= p.title %><br />
 					Gemaakt op <%= p.created_at.strftime('%d-%m-%Y') %><br />
-					<%= sanitize p.content, tags: ['p', 'em', 'u', 'strong'] %>
+					<%=  raw Shortcode.process(p.content) %>
 					<% end %>
 			</div>
 		</div>

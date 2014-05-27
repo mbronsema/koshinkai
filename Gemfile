@@ -19,7 +19,7 @@ gem 'devise'
 gem 'pundit'
 gem 'jquery-rails'
 gem 'carrierwave'
-
+gem 'shortcode'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -40,6 +40,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'rails-assets-fitvids'
 gem 'rails-assets-gmaps'
+gem 'rails-assets-lightbox2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -99,6 +99,21 @@ nav.menu {
 
 }
 /*
+ * Shortcodes
+*/
+p.quotation{
+	color: rgba(#000, 0.8);
+	font-style: italic;
+}
+p.citation{
+	font-size: 0.8em;
+	font-weight: bold;
+}
+img.contentimg{
+	width: 500px;
+	height: auto;
+}
+/*
 * Awesomesauce!
 */
 .arrow-down {

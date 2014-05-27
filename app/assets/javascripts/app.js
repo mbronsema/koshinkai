@@ -23,7 +23,8 @@ $(document).ready(function() {
 
     // Froala editor initialising
     $('form textarea').editable({inlineMode:false, height: 300,
-                                buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color']});
+                                buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
+                                paragraphy: true});
     $("header").fitVids();
     $('.nav li.dropdown a').hover( function(e){
         console.log($(this, 'ul.dropdown-menu'));
