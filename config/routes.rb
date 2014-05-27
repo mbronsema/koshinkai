@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   get '/:menuname/:submenuname/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:menuname/:submenuname/postcreate' => 'categories#postcreate', :via => :post
-
+ # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

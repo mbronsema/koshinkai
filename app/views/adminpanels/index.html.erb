@@ -6,7 +6,7 @@
     <tr><th>Titel</th><th>Aangenaakt op</th><th>Aangepast op</th><th>Aanpassen</th><th></th></tr>
     <% @posts.each do |p| %>
       <tr><td><%= p.title %></td><td><%= DTformat p.created_at %></td><td><%= DTformat p.updated_at %></td><td>
-		<%= link_to 'Delete', @post, :method => 'delete', :confirm => 'Are you sure?'%></td></tr>
+		<%= link_to 'Destroy', p, :method => :delete, :confirm => "Are you sure?" %></td></tr>
     <% end %>
   </table> 
 </div>
