@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :adminpanels
+  resources :adminpanels do
+    resources :posts
+  end
 
   devise_for :users
   resources :users
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   get '/:menuname/:submenuname/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:menuname/:submenuname/postcreate' => 'categories#postcreate', :via => :post
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -14,6 +14,16 @@ class AdminpanelsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def editposts
+  end
+  
+  def destroypost
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end 
+ 
+  
   def showevents
     @event = Event.find(params[:id])
   end
@@ -25,6 +35,5 @@ class AdminpanelsController < ApplicationController
   def showcomments
     @comment = Comment.find(params[:id])
   end
-
-
 end
+
