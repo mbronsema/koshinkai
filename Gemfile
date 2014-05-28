@@ -41,7 +41,10 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'rails-assets-fitvids'
 gem 'rails-assets-gmaps'
 gem 'rails-assets-lightbox2'
-
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', require: false
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

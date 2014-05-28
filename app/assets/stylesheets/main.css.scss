@@ -12,26 +12,70 @@ $highlight: #d9c10c;
 $highlight-text: #efebdf;
 $black: #000;
 $light: #efefef;
+$white: #fff;
+$gray: #868e96;
+.panel{
+	border: 1px solid $gray!important;
+}
+span.icon-news{
+	background-image: url("news.png");
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: top left;
+	height: 90px;
+	width: 91px;
+	display: block;
+	margin: -47px auto 0 auto;
+}
 nav.menu {
 	text-align: center;
-	border-bottom: 5px solid $menu-tab-color;
 	font-family: BebasNeueRegular, arial, sans;
 	font-size: 140%;
 	line-height: 1em;
-
+	margin-bottom: 60px;
+	margin-top: 5px;
+	#search{
+		border-radius: 15px;
+		width: 150px;
+		font-size: 0.7em;
+		padding: 2px 5px;
+		margin-bottom: 3px;
+		margin-top: 5px;
+		float: right;
+	}
+	ul{
+		background-color: $white;
+		border: 1px solid $gray;
+		border-radius: 15px;
+		display: block;
+		text-align:left;
+		padding-top:5px;
+		width: 80%;
+		float: left;
+	}
 	/* Main menu items */
 	li {
 		display: inline-block;
 		position: relative;
-			&.current-page-item{
-				background-color: $highlight;
-				color: $light;
+		border-radius: none;
+		&:first-of-type{
+			margin: 0 0 0 10px;
+		}
+		&.current-page-item{
+			background-color: rgba(230,168, 42, 1);
+			a{
+				color: $white;
 			}
+		}
+		&:hover{
+			border-radius: 0;
+			background-color: rgba(230,168, 42, .5);
+		}
 		/* Space out the links */
 		a {
-			padding: 1em;
+			padding: .7em;
 			display: block;
-
+			font-size: 0.8em;
 		}
 
     	/* Hide sub menus & sub-sub menus
@@ -45,11 +89,10 @@ nav.menu {
 			width: 12em;
 			background-color: adjust-lightness($menu-tab-color, -10);
 			@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
-					background-color: $menu-tab-color;
-		background-image: url('./martinb.jpg');
-		background-repeat: no-repeat;
-		background-size: 100%;
-
+			background-color: $menu-tab-color;
+			background-image: url('./martinb.jpg');
+			background-repeat: no-repeat;
+			background-size: 100%;
 		}
 
     	/* Position sub-subs to right of parent li */
@@ -57,7 +100,6 @@ nav.menu {
 			left:100%;
 			top: 0;
 			background-color: adjust-lightness($menu-tab-color, -15);
-
 		}
 
 	    /* Make sub & sub-sub li's fill parent ul
@@ -110,8 +152,21 @@ p.citation{
 	font-weight: bold;
 }
 img.contentimg{
-	width: 500px;
+	max-width: 500px;
 	height: auto;
+}
+.video {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
 /*
 * Awesomesauce!
@@ -121,7 +176,6 @@ img.contentimg{
 	height: 0; 
 	border-left: 100px solid transparent;
 	border-right: 100px solid transparent;
-	
 	border-top: 150px solid #dadcdb;
 	z-index: 10000;
 	margin-bottom: -100px;
@@ -135,16 +189,26 @@ section#profile{
 	img.avatar{ 
 		width: 75px;
 		height: auto;
-
 	}
 }
+	.right-inner-addon {
+    position: relative;
+	}
+	.right-inner-addon input {
+	    padding-right: 30px;    
+	}
+	.right-inner-addon i {
+	    position: absolute;
+	    right: 0px;
+	    padding: 6px 12px;
+	    pointer-events: none;
+	}
 #maps{
 	height: 400px;
-	z-index: -1;
-	width: 95%;
+	z-index: 0;
+	width: 100%;
 	display: block;
 	margin: 0 auto;
-
 }
 footer{
 	background-color: $menu-tab-color;
