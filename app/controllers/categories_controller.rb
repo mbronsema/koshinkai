@@ -1,16 +1,19 @@
 class CategoriesController < ApplicationController
   respond_to :html, :json
   def show
-    unless @category = Category.find_by_submenuname(params[:submenuname])
+    unless @category = Category.where.not(parent_id: nil).find_by_menuname(params[:menuname])
       redirect_to root_path
     end
   end
+
   def new
     @category = Category.new
+    @categories = Category.where(parent_id: nil).all
   end
 
   def create
     @category = Category.new(category_params)
+    @category.menuname.downcase!
     if @category.save
       redirect_to @category
     else
@@ -19,12 +22,12 @@ class CategoriesController < ApplicationController
   end
 
   def postnew 
-    @category = Category.find_by_submenuname(params[:submenuname])
+    @category = Category.find_by_menuname(params[:menuname])
     @post = Post.new
   end
 
   def postcreate
-    @category = Category.find_by_submenuname(params[:submenuname])
+    @category = Category.find_by_menuname(params[:menuname])
     @post = Post.new(post_params)
     @post.category_id = @category.id
     @post.user_id = current_user.id
@@ -43,7 +46,7 @@ class CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:menuname, :submenuname)
+    params.require(:category).permit(:menuname, :parent_id)
   end
 
    def post_params

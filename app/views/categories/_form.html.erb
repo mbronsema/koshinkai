@@ -1,5 +1,12 @@
 <%= form_for @category do |c| %>
-<%= c.label :menuname, "Menu naam" %><br /> <%= c.select(:menuname, options_for_select(['Home', 'Prijzen', 'Aikido', 'Koshinkai', 'Agenda', 'Media', 'Contact'])) %><br />
-<%= c.label :submenuname, "Submenu naam" %><br /> <%= c.text_field :submenuname %><br />
-<%= c.submit %>
+  <select id="category_parent_id" name="category[parent_id]">
+    <option value="<%= nil %>">Hoofdcategory</option>
+      <% @categories.each do |m| %>
+        <option value="<%= m.id %>"><%= m.menuname %></option>
+      <% end %>
+  </select>
+  <%= c.label :menuname, "Menunaam" %><br /> <%= c.text_field :menuname %><br />
+  <%= c.check_box :prive, {}, "true", "false" %>
+  <%= c.label(:prive, "Prive") %><br />
+  <%= c.submit %>
 <% end %>

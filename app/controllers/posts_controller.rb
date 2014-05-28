@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def home
       @event = Event.last(3)
       @eventchanged = Event.all
-      if @category = Category.find_by_submenuname('Nieuws')
+      if @category = @category = Category.where.not(parent_id: nil).find_by_menuname(params[:name])
       @post = Post.where(:category_id => @category.id).last(2)
       else
       @post = Post.all

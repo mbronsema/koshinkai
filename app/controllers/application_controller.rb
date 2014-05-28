@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   before_action :authenticate_user!
   before_filter :fetch_menu
+  before_filter :fetch_menu_private
   protect_from_forgery with: :exception
   
   before_action :update_sanitized_params, if: :devise_controller?
@@ -13,10 +14,12 @@ class ApplicationController < ActionController::Base
 			I18n.locale = params[:locale] || I18n.default_locale
 		end
 
-
-   def fetch_menu
+  def fetch_menu
     @menu = Category.all
-    @mainmenu = {'Home' => root_path, 'Prijzen' => '#', 'Aikido' => '#','Koshinkai' => '#', 'Agenda' => events_path, 'Media' => '#', 'Contant' => '#'}
+  end
+
+  def fetch_menu_private
+    @menu = Category.all
   end
   
   protected

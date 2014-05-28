@@ -8,4 +8,12 @@ module ApplicationHelper
       "current-page-item"
     end
   end
+
+  def languageswitch(x)
+    case x
+    when 'Events'
+      "Agenda" 
+    end
+  end
+
 end
