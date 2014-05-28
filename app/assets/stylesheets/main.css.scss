@@ -3,8 +3,9 @@ $menu-tab-color: #c79b6a;
 @import "frontend/sass/variables";
 
 header{
-	background-image: url('http://placekitten.com/960/350');
-	background-size: 960px 350px;
+	background-image: url('http://lorempixel.com/960/350/sports');
+	background-size: 100%;
+	background-position: center center;
 	height: 350px;
 	display: block;
 }
