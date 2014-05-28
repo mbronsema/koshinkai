@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-get '/:headmenu', to: 'posts#home', as: '/'
   resources :adminpanels do
     resources :posts
   end
