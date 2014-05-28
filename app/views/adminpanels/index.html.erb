@@ -47,6 +47,7 @@
 		<th>Laatst aangemeld</th>
 		<th>Aanpassen</th>
 		<th>Verwijderen</th>
+		<th>profiel foto</th>
 	</tr>
       
 	  <% @users.each do |u| %>
@@ -56,6 +57,7 @@
 		<td><%= DTformat u.last_sign_in_at %></td>
 		<td><%= link_to 'Edit', edit_user_registration_path(u)%></td>
 		<td><%= link_to 'Destroy', user_registration_path, :confirm => 'Deze gebruiker verwijderen?', :method => :delete %></td>
+		<td><%= image_tag u.avatar %></td>
 	</tr>
     <% end %>
   </table>
