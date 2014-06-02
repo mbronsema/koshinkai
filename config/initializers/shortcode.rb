@@ -10,7 +10,7 @@
    # above template_path option. The default is nil
 
   # a list of block tags to support e.g. [quote]Hello World[/quote]
-  config.block_tags = [:quote]
+  config.block_tags = [:quote, :sarcasm]
 
   # a list of self closing tags to support e.g. [youtube id="12345"]
   config.self_closing_tags = [:youtube, :img]

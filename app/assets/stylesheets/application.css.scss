@@ -10,7 +10,9 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
+*= require animate.css
 *= require fullcalendar
+*= require dropzone
 *= require froala-wysiwyg/css/font-awesome.scss
 *= require froala-wysiwyg/css/froala_editor.scss
 *= require bootstrap-datetimepicker

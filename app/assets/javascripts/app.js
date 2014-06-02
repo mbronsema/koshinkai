@@ -1,25 +1,16 @@
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     'use strict'
+
     var mapsLat = 53.200117;
     var mapsLong= 5.809021;
-    var maps = new GMaps({
-      div: '#maps',
-      lat: mapsLat,
-      lng: mapsLong
-    });
-    maps.addMarker({
-      lat: mapsLat,
-      lng: mapsLong,
-      title: 'Koshinkai',
-        infoWindow: {
-          content: '<h2>Aikidovereniging Koshinkai</h2><p>Emmakade 59, Leeuwarden</p>'
-        }
+  var url = GMaps.staticMapURL({
+    size: [1280, 400],
+    lat: mapsLat,
+    lng: mapsLong
+  });
+  $('<img/>').attr('src', url).appendTo('#maps');
 
-    });
-    maps.drawOverlay({
-        content: "<div class='arrow-'></div>"
-    });
 
     // Froala editor initialising
     $('form textarea').editable({inlineMode:false, height: 300,

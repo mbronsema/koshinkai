@@ -41,6 +41,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'rails-assets-fitvids'
 gem 'rails-assets-gmaps'
 gem 'rails-assets-lightbox2'
+gem 'rails-assets-dropzone'
+gem 'rails-assets-animate.css'
 group :development do
   gem 'guard'
   gem 'guard-livereload', require: false

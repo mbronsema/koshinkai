@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   resources :adminpanels do
     resources :posts
+    resources :users
+    
   end
 
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "my_devise/registrations"} 
+ 
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :adminpanels_destroy_user 
+
+             
   resources :users
   resources :posts
   resources :events
@@ -16,8 +22,10 @@ Rails.application.routes.draw do
   get '/:headurl/:url/', to: 'categories#show', as: 'submenu'
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
-  get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
+get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
+
+  match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
  # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

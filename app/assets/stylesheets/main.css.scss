@@ -8,13 +8,16 @@ header{
 	background-position: center center;
 	height: 350px;
 	display: block;
+	position: relative;
 }
+
 $highlight: #d9c10c;
 $highlight-text: #efebdf;
 $black: #000;
 $light: #efefef;
 $white: #fff;
 $gray: #868e96;
+
 .panel{
 	border: 1px solid $gray!important;
 }
@@ -144,6 +147,14 @@ nav.menu {
 /*
  * Shortcodes
 */
+span.sarcasm{
+	-webkit-transform: skew(20deg);
+	-moz-transform: skew(20deg);
+	-ms-transform: skew(20deg);
+	-o-transform: skew(20deg);
+	transform: skew(20deg);
+	display: inline-block;
+}
 p.quotation{
 	color: rgba(#000, 0.8);
 	font-style: italic;
@@ -172,6 +183,12 @@ img.contentimg{
 /*
 * Awesomesauce!
 */
+.custom-alert{
+	position: absolute;
+	top: 30px;
+	right: 0;
+	left: 0;
+}
 .arrow-down {
 	width: 0; 
 	height: 0; 
@@ -181,11 +198,22 @@ img.contentimg{
 	z-index: 10000;
 	margin-bottom: -100px;
 }
+
 section#profile{
-	border: 1px solid black;
-	padding: 10px 0;
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+	background-color: rgba(#fff, 0.8);
+	padding: 0;
+	.panel-heading{
+		width: 100%;
+	}
 	ul.profile_links{
 		list-style-type: none;
+		li{
+			display: inline-block;
+			float: left;
+		}
 	}
 	img.avatar{ 
 		width: 75px;
@@ -217,3 +245,4 @@ footer{
 	height: 300px;
 	width: 100%;
 }
+
