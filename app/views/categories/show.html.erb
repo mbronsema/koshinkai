@@ -1,6 +1,6 @@
 <h1><%= @category.menuname %></h1>
 check if logged in moet hier komen<br />
-<%= link_to 'Nieuw '+@category.menuname+ ' bericht toevoegen', catpost_path %>
+
 <% @category.posts.each do |p| %>
   <h2><%= p.title %> </h2>
    <%= raw Shortcode.process(p.content) %>
@@ -8,7 +8,7 @@ check if logged in moet hier komen<br />
 <% end %> 
 <!--%= @category.menuname %></h1>
 check if logged in moet hier komen<br />
-<%= link_to 'Nieuw '+@category.menuname+ ' bericht tovoegen', catpost_path %>
+
 <% @category.posts.each do |p| %>
   <h2><%= p.title %> </h2>
    <% prepare_v = sanitize p.content, tags: ['p', 'em', 'u', 'strong', 'embed'] %>

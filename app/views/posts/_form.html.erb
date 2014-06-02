@@ -1,6 +1,6 @@
 <div class="container">
 <%= form_for @post do |p| %>
-<%= p.collection_select(:category_id, Category.all, :id, :submenuname, class: "form-control") %><br />
+<%= p.collection_select(:category_id, Category.all, :id, :menuname, class: "form-control") %><br />
 <%= p.label :title, "Titel" %><br /> <%= p.text_field :title, class: "form-control" %><br />
 <%= p.label :content, "Content" %><br /> <%= p.text_area :content, class: "form-control" %><br />
 <%= p.check_box :prive, {}, "true", "false" %>

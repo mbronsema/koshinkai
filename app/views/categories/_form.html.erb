@@ -4,8 +4,9 @@
       <% @categories.each do |m| %>
         <option value="<%= m.id %>"><%= m.menuname %></option>
       <% end %>
-  </select>
-  <%= c.label :menuname, "Menunaam" %><br /> <%= c.text_field :menuname %><br />
+  </select><br />
+  <%= c.label :menuname, "Menunaam:" %><br /> <%= c.text_field :menuname %><br />
+  <%= c.label :url, "Url:" %> <br /><%= c.text_field :url %><br />
   <%= c.check_box :prive, {}, "true", "false" %>
   <%= c.label(:prive, "Prive") %><br />
   <%= c.submit %>

@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   resources :attachments
 
 
-
-  get '/:headmenu/:menuname', to: 'categories#show', as: 'submenu'
+  
+  get '/:headurl/:url/', to: 'categories#show', as: 'submenu'
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
-  get '/:headmenu/:menuname/postnew', to: 'categories#postnew', as: 'catpost' 
-  match '/:headmenu/:menuname/postcreate' => 'categories#postcreate', :via => :post
+  get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
+  match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
  # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
