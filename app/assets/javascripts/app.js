@@ -5,7 +5,7 @@ $(document).ready(function() {
     var mapsLat = 53.200117;
     var mapsLong= 5.809021;
   var url = GMaps.staticMapURL({
-    size: [1280, 400],
+    size: [400, 1024],
     lat: mapsLat,
     lng: mapsLong
   });

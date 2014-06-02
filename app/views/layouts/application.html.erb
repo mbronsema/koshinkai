@@ -16,11 +16,14 @@
   <% end %> -->
     <% if user_signed_in? %>
     <section id="profile" class="col-md-3 panel panel-primary">
-      <%= content_tag(:div, "Welkom " + current_user.email, class: "panel-heading") %>
-      <%= image_tag(current_user.avatar_url, :class => "avatar col-md-6") if current_user.avatar? %>
-      <ul class="col-md-6 profile_links">
-        <li><%= link_to("Bewerk profiel", edit_user_registration_path, :class => "btn btn-mini btn-warning ") %></li>
-        <li><%= link_to('logout', destroy_user_session_path, :method => :delete, :class => "profile_logout btn btn-mini btn-danger ") %></li>
+      <%= content_tag(:div, "Welkom, " + current_user.email, class: "panel-heading") %>
+      <ul class="profile_links">
+        <li class="panel avatar"><%= image_tag(current_user.avatar_url, :class => "col-md-6") if current_user.avatar? %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to("Admin", adminpanels_path, :class => "btn btn-mini btn-primary btn-sm") %></li>
+      <% end %>
+        <li><%= link_to("Bewerk profiel", edit_user_registration_path, :class => "btn btn-mini btn-warning  btn-sm") %></li>
+        <li><%= link_to('Uitloggen', destroy_user_session_path, :method => :delete, :class => "profile_logout btn btn-mini btn-danger btn-sm ") %></li>
       </ul>
     </section>
     <% end %>
@@ -38,7 +41,7 @@
 </article>
 
 <section class="row">
-  <div id="maps" >  <img /></div>
+  <div id="maps" ><div class="arrow-down"></div><img /></div>
 
 </section>
 <footer><%= render "layouts/footer" %></footer>
