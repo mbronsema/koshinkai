@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   resources :adminpanels do
     resources :posts
+    resources :users
+    
   end
 
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "my_devise/registrations"} 
+ 
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :adminpanels_destroy_user 
+
+             
   resources :users
   resources :posts
   resources :events
@@ -16,6 +22,7 @@ Rails.application.routes.draw do
   get '/:headmenu/:menuname', to: 'categories#show', as: 'submenu'
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
+  match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
   get '/:headmenu/:menuname/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headmenu/:menuname/postcreate' => 'categories#postcreate', :via => :post
  # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'

@@ -38,9 +38,9 @@ class UsersController < ApplicationController
     authorize user
     unless user == current_user
       user.destroy
-      redirect_to users_path, :notice => "User deleted."
+      redirect_to  adminpanels_path, :notice => "User deleted."
     else
-      redirect_to users_path, :notice => "Can't delete yourself."
+      redirect_to  adminpanels_path, :notice => "Can't delete yourself."
     end
   end
 end
