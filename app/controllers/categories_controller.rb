@@ -22,12 +22,12 @@ class CategoriesController < ApplicationController
   end
 
   def postnew 
-    @category = Category.find_by_menuname(params[:menuname])
+    @category = Category.find_by_url(params[:url])
     @post = Post.new
   end
 
   def postcreate
-    @category = Category.find_by_menuname(params[:menuname])
+    @category = Category.find_by_url(params[:url])
     @post = Post.new(post_params)
     @post.category_id = @category.id
     @post.user_id = current_user.id

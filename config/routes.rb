@@ -16,13 +16,15 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
+  resources :comments
 
 
   
-  get '/:headurl/:url/', to: 'categories#show', as: 'submenu'
+
+  get '/:headurl/:url', to: 'categories#show', as: 'submenu'
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
-get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
+  get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
 
   match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
