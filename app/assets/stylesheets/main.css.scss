@@ -18,7 +18,7 @@ header{
 }
 
 .panel{
-	border: 1px solid $gray!important;
+	border: 1px solid rgba($gray, 0.0)!important;
 }
 
 span.icon-news{
@@ -39,7 +39,6 @@ nav.menu {
 	margin-bottom: 60px;
 	margin-top: 5px;
 	#search{
-		border-radius: 15px;
 		width: 150px;
 		font-size: 0.7em;
 		padding: 2px 5px;
@@ -50,7 +49,6 @@ nav.menu {
 	ul{
 		background-color: $white;
 		border: 1px solid $gray;
-		border-radius: 15px;
 		display: block;
 		text-align:left;
 		padding-top:5px;
@@ -84,34 +82,34 @@ nav.menu {
 
     	/* Hide sub menus & sub-sub menus
      	* Position *underneath* originating li (see ul ul below) */
-		ul, ul ul {
-			display: none;
-			position: absolute;
-			z-index: 999;
-			top: 100%;
-			left: 0;
-			width: 12em;
-			background-color: adjust-lightness($menu-tab-color, -10);
-			@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
-			background-color: $menu-tab-color;
-			background-image: url('./martinb.jpg');
-			background-repeat: no-repeat;
-			background-size: 100%;
-		}
+		// ul, ul ul {
+		// 	display: none;
+		// 	position: absolute;
+		// 	z-index: 999;
+		// 	top: 100%;
+		// 	left: 0;
+		// 	width: 12em;
+		// 	background-color: adjust-lightness($menu-tab-color, -10);
+		// 	@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
+		// 	background-color: $menu-tab-color;
+		// 	background-image: url('./martinb.jpg');
+		// 	background-repeat: no-repeat;
+		// 	background-size: 100%;
+		// }
 
     	/* Position sub-subs to right of parent li */
-		ul ul {
-			left:100%;
-			top: 0;
-			background-color: adjust-lightness($menu-tab-color, -15);
-		}
+		// ul ul {
+		// 	left:100%;
+		// 	top: 0;
+		// 	background-color: adjust-lightness($menu-tab-color, -15);
+		// }
 
 	    /* Make sub & sub-sub li's fill parent ul
      	* Add feint border to bottom to separate items */
-		li {
-			display: block;
-			border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
-		}
+		// li {
+		// 	display: block;
+		// 	border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
+		// }
 
 	}
 		> #add_new_link{

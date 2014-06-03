@@ -6,17 +6,24 @@
   <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true&.js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript"> 
+    var $buoop = {}; 
+    $buoop.ol = window.onload; 
+    window.onload=function(){ 
+     try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+     var e = document.createElement("script"); 
+     e.setAttribute("type", "text/javascript"); 
+     e.setAttribute("src", "//browser-update.org/update.js"); 
+     document.body.appendChild(e); 
+    } 
+  </script> 
+  
 </head>
 <body>
 <section id="header" >
   <header >
   <%= content_tag(:div, alert, class: "alert alert-danger container custom-alert animated pulse") if(flash[:alert]) %>
   <%= content_tag(:div, notice, class: "alert alert-success container custom-alert animated pulse") if(flash[:notice]) %>
-
-
- <!--  <% if flash[:notice] || flash[:alert] %>
-    <div class="alert alert-success"><%= notice %><%= alert %></div>
-  <% end %> -->
     <% if user_signed_in? %>
     <section id="profile" class="col-md-3 panel panel-primary">
       <%= content_tag(:div, "Welkom, " + current_user.email, class: "panel-heading") %>
