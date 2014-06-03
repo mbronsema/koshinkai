@@ -10,7 +10,10 @@
 <body>
 <section id="header" >
   <header >
-  <%= content_tag(:div, alert || notice, class: "alert alert-success container custom-alert animated pulse")  if (flash[:notice] || flash[:alert])  %>
+  <%= content_tag(:div, alert, class: "alert alert-danger container custom-alert animated pulse") if(flash[:alert]) %>
+  <%= content_tag(:div, notice, class: "alert alert-success container custom-alert animated pulse") if(flash[:notice]) %>
+
+
  <!--  <% if flash[:notice] || flash[:alert] %>
     <div class="alert alert-success"><%= notice %><%= alert %></div>
   <% end %> -->

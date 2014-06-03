@@ -1,6 +1,12 @@
 $menu-tab-color: #c79b6a;
 @import "compass";
 @import "frontend/sass/variables";
+$highlight: #d9c10c;
+$highlight-text: #efebdf;
+$black: #000;
+$light: #efefef;
+$white: #fff;
+$gray: #868e96;
 
 header{
 	background-image: url('http://lorempixel.com/960/350/sports');
@@ -11,16 +17,10 @@ header{
 	position: relative;
 }
 
-$highlight: #d9c10c;
-$highlight-text: #efebdf;
-$black: #000;
-$light: #efefef;
-$white: #fff;
-$gray: #868e96;
-
 .panel{
 	border: 1px solid $gray!important;
 }
+
 span.icon-news{
 	background-image: url("news.png");
 	background-repeat: no-repeat;
