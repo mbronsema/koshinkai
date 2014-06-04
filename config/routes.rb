@@ -16,12 +16,12 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
-
+  resources :comments
   resources :contact
   
   match '/send_mail', to: 'contact#send_mail', via: 'post'
-  get '/:headmenu/:menuname', to: 'categories#show', as: 'submenu'
-  resources :comments
+ 
+  
 
 
   get '/search', to: 'posts#search', as: 'search'
