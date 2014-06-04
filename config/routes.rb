@@ -19,20 +19,24 @@ Rails.application.routes.draw do
   resources :categories
   resources :attachments
   resources :contact
-
- 
+  
+  #contact koshinkai with mail routes
   match '/send_mail', to: 'contact#send_mail', via: 'post'
- 
-  get '/search', to: 'posts#search', as: 'search'
-  match '/adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
 
+  #search route
+  get '/search', to: 'posts#search', as: 'search'
+
+  #adminroutes
+  match '/adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
+  match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
+
+  #Categorie routes
   get '/:headurl/:url', to: 'categories#show', as: 'submenu'
   get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
   get '/:url', to: 'categories#show'
 
-  match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
- # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
+  # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"

@@ -1,0 +1,19 @@
+<%= form_for @user do |f| %>  
+
+ <div class="form">  
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %><br />
+
+<%= f.select :role, [:user, :admin] %>
+
+</div>
+  
+  <%= f.submit "Update" %></div>
+  <% end %>
+
+ </div>  
+
+
+
+
+<%= link_to "Back", :back %>

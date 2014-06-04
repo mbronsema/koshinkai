@@ -5,7 +5,11 @@
       @user = user
       @record = record
     end
-
+    
+    def edit?
+      @user.admin?
+    end
+    
     def index?
       @user.admin?
     end

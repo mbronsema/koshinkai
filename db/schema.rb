@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603122026) do
+ActiveRecord::Schema.define(version: 20140604144833) do
 
   create_table "attachments", force: true do |t|
     t.string   "title"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140603122026) do
     t.string   "last_sign_in_ip"
     t.integer  "role"
     t.string   "avatar"
+    t.string   "invite_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
