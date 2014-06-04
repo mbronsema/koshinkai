@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
      authorize @user
   end
+  
+
+  def invite_code 
+    @invite_code 
+  end 
 
   def update
     @user = User.find(params[:id])
@@ -46,6 +51,6 @@ class UsersController < ApplicationController
     end
   end
   def secure_params
-    params.require(:user).permit(:email, :role)
+    params.require(:user).permit(:email, :role, :invite_code)
   end
 end

@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
+  
+  validates_each :invite_code, :on => :create do |record, attr, value|
+      record.errors.add attr, "Please enter correct invite code" unless
+        value && value == "hoi"
+      end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  
+  #attr_accessors :invite_code
+ # attr_accessible :invite_code
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -18,4 +26,6 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :comments
   
+  
+ 
 end
