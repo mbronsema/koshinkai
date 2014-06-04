@@ -16,19 +16,17 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
-<<<<<<< HEAD
+
   resources :contact
   
   match '/send_mail', to: 'contact#send_mail', via: 'post'
   get '/:headmenu/:menuname', to: 'categories#show', as: 'submenu'
-=======
   resources :comments
 
 
   
 
   get '/:headurl/:url', to: 'categories#show', as: 'submenu'
->>>>>>> FETCH_HEAD
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
