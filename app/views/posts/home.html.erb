@@ -1,26 +1,28 @@
-<div class="row">
+<div class="row home">
 	<div class="col-md-4">
 		<div class="panel panel-primary">
 		<section id="home-news">
-			<span class="icon-news"></span>
+			<span class="icon-nieuws"></span>
 			<div class="panel-body">
-				<h2>Nieuws</h2>
-					<br />
 					<% @post.each do |p| %>
 					<article>
 						<h3><%= p.title %></h3>
 						<div class="date">Gemaakt op <%= p.created_at.strftime('%d-%m-%Y') %></div>
 						<div class="post-body"><%=  raw Shortcode.process(p.content) %></div>
 					</article>
-					<% end %>
+					<% break end %>
 			</div>
 		</section>
+		<div class="panel-bar">
+			<a href="#">Lees meer</a>
+		</div>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-primary">
-			<div class="panel-body">
-
+		<section id="home-info">
+		<span class="icon-info"></span>
+		<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -28,10 +30,13 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
+			</section>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-primary">
+		<section id="home-location">
+		<span class="icon-locatie"></span>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -40,12 +45,15 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
+			</section>
 		</div>
 	</div>
 </div>
-<div class="row">
+<div class="row home">
 	<div class="col-md-4">
 		<div class="panel panel-primary">
+		<section id="home-activiteiten">
+		<span class="icon-activiteiten"></span>
 			<div class="panel-body">
 				<h2>Activiteiten</h2>
 				<% @event.each do |e| %>
@@ -55,10 +63,13 @@
 				<%= sanitize e.message, tags: ['p', 'em', 'u', 'strong'] %>
 				<% end %>
 			</div>
+			</section>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-primary">
+			<section id="home-wijzigingen">
+			<span class="icon-wijzigingen"></span>
 			<div class="panel-body">
 			<h2>Wijzigingen</h2>
 			<% @eventchanged.each do |e| %>
@@ -70,10 +81,13 @@
 				<% end %>
 				<% end %>
 			</div>
+			</section>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-primary">
+		<section id="home-lesrooster">
+		<span class="icon-lesrooster"></span>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -82,6 +96,7 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
+		</section>
 		</div>
 	</div>
 </div>
