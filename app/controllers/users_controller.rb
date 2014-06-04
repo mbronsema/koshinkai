@@ -19,17 +19,19 @@ class UsersController < ApplicationController
       end
     end
   end
+  
   def edit
     @user = User.find(params[:id])
+     authorize @user
   end
 
   def update
     @user = User.find(params[:id])
     authorize @user
     if @user.update_attributes(secure_params)
-      redirect_to users_path, :notice => "User updated."
+      redirect_to adminpanels_path, :notice => "User updated."
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to adminpanels_path, :alert => "Unable to update user."
     end
   end
 
@@ -42,5 +44,8 @@ class UsersController < ApplicationController
     else
       redirect_to adminpanels_path, :notice => "Can't delete yourself."
     end
+  end
+  def secure_params
+    params.require(:user).permit(:email, :role)
   end
 end
