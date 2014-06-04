@@ -1,16 +1,20 @@
 <div class="row">
 	<div class="col-md-4">
 		<div class="panel panel-primary">
+		<section id="home-news">
 			<span class="icon-news"></span>
 			<div class="panel-body">
 				<h2>Nieuws</h2>
 					<br />
 					<% @post.each do |p| %>
-					<%= p.title %><br />
-					Gemaakt op <%= p.created_at.strftime('%d-%m-%Y') %><br />
-					<%=  raw Shortcode.process(p.content) %>
+					<article>
+						<h3><%= p.title %></h3>
+						<div class="date">Gemaakt op <%= p.created_at.strftime('%d-%m-%Y') %></div>
+						<div class="post-body"><%=  raw Shortcode.process(p.content) %></div>
+					</article>
 					<% end %>
 			</div>
+		</section>
 		</div>
 	</div>
 	<div class="col-md-4">

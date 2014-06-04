@@ -9,11 +9,4 @@ module ApplicationHelper
     end
   end
 
-  def languageswitch(x)
-    case x
-    when 'Events'
-      "Agenda" 
-    end
-  end
-
 end

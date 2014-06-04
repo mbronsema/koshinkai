@@ -1,14 +1,13 @@
 <h1><%= @category.menuname %></h1>
-check if logged in moet hier komen<br />
-<%= link_to 'Nieuw '+@category.menuname+ ' bericht toevoegen', catpost_path %>
+<%= link_to 'Nieuw '+@category.menuname+ ' bericht tovoegen', catpost_path %>
 <% @category.posts.each do |p| %>
-  <h2><%= p.title %> </h2>
+  <h2><%= link_to p.title, post_path(p.id) %> </h2>
    <%= raw Shortcode.process(p.content) %>
    Gemaakt op <%= DTformat p.created_at %><br />
 <% end %> 
 <!--%= @category.menuname %></h1>
 check if logged in moet hier komen<br />
-<%= link_to 'Nieuw '+@category.menuname+ ' bericht tovoegen', catpost_path %>
+
 <% @category.posts.each do |p| %>
   <h2><%= p.title %> </h2>
    <% prepare_v = sanitize p.content, tags: ['p', 'em', 'u', 'strong', 'embed'] %>

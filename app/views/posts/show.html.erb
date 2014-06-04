@@ -1,10 +1,34 @@
 <h1> <%= @post.title %> </h1>
-<% a = @post.content.match('https?:\/\/www.youtube.com\/watch\?v=(?<youtube_id>[^ ]+)')  %>
-<% d = @post.content.match('https?:\/\/www.youtube.com\/watch\?v=?[^ ]+')  %>
-<% w = '</span></p><embed width="420" height="345" src="http://www.youtube.com/v/' + a[:youtube_id]  + '" type="application/x-shockwave-flash" allowfullscreen="true"></embed><p><span> ' %>
-<% dd = @post.content.gsub(d[0], w) %>
-<%= sanitize dd, tags: ['p', 'em', 'u', 'strong', 'embed', 'span'] %>
+<% @post.content  %>
 
 Akkoord: <%= @post.approved %><br />
 Prive: <%= @post.prive %><br />
 Category id<%= @post.category_id %>
+
+<h2>Reacties</h2>
+<% @post.comments.each do |c| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= c.title %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= c.message %>
+  </p>
+<% end %>
+
+<h2>Plaats een reactie:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

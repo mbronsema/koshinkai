@@ -1,6 +1,12 @@
 $menu-tab-color: #c79b6a;
 @import "compass";
 @import "frontend/sass/variables";
+$highlight: #d9c10c;
+$highlight-text: #efebdf;
+$black: #000;
+$light: #efefef;
+$white: #fff;
+$gray: #868e96;
 
 header{
 	background-image: url('http://lorempixel.com/960/350/sports');
@@ -8,16 +14,13 @@ header{
 	background-position: center center;
 	height: 350px;
 	display: block;
+	position: relative;
 }
-$highlight: #d9c10c;
-$highlight-text: #efebdf;
-$black: #000;
-$light: #efefef;
-$white: #fff;
-$gray: #868e96;
+
 .panel{
-	border: 1px solid $gray!important;
+	border: 1px solid rgba($gray, 0.0)!important;
 }
+
 span.icon-news{
 	background-image: url("news.png");
 	background-repeat: no-repeat;
@@ -36,7 +39,6 @@ nav.menu {
 	margin-bottom: 60px;
 	margin-top: 5px;
 	#search{
-		border-radius: 15px;
 		width: 150px;
 		font-size: 0.7em;
 		padding: 2px 5px;
@@ -47,7 +49,6 @@ nav.menu {
 	ul{
 		background-color: $white;
 		border: 1px solid $gray;
-		border-radius: 15px;
 		display: block;
 		text-align:left;
 		padding-top:5px;
@@ -81,36 +82,39 @@ nav.menu {
 
     	/* Hide sub menus & sub-sub menus
      	* Position *underneath* originating li (see ul ul below) */
-		ul, ul ul {
-			display: none;
-			position: absolute;
-			z-index: 999;
-			top: 100%;
-			left: 0;
-			width: 12em;
-			background-color: adjust-lightness($menu-tab-color, -10);
-			@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
-			background-color: $menu-tab-color;
-			background-image: url('./martinb.jpg');
-			background-repeat: no-repeat;
-			background-size: 100%;
-		}
+		// ul, ul ul {
+		// 	display: none;
+		// 	position: absolute;
+		// 	z-index: 999;
+		// 	top: 100%;
+		// 	left: 0;
+		// 	width: 12em;
+		// 	background-color: adjust-lightness($menu-tab-color, -10);
+		// 	@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
+		// 	background-color: $menu-tab-color;
+		// 	background-image: url('./martinb.jpg');
+		// 	background-repeat: no-repeat;
+		// 	background-size: 100%;
+		// }
 
     	/* Position sub-subs to right of parent li */
-		ul ul {
-			left:100%;
-			top: 0;
-			background-color: adjust-lightness($menu-tab-color, -15);
-		}
+		// ul ul {
+		// 	left:100%;
+		// 	top: 0;
+		// 	background-color: adjust-lightness($menu-tab-color, -15);
+		// }
 
 	    /* Make sub & sub-sub li's fill parent ul
      	* Add feint border to bottom to separate items */
-		li {
-			display: block;
-			border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
-		}
-	}
+		// li {
+		// 	display: block;
+		// 	border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
+		// }
 
+	}
+		> #add_new_link{
+			border: 1px solid black!important;
+		}
 	/* Highlight li on hover */
 	li:hover {
 		border-top-left-radius: 5px;
@@ -144,6 +148,14 @@ nav.menu {
 /*
  * Shortcodes
 */
+span.sarcasm{
+	-webkit-transform: skew(20deg);
+	-moz-transform: skew(20deg);
+	-ms-transform: skew(20deg);
+	-o-transform: skew(20deg);
+	transform: skew(20deg);
+	display: inline-block;
+}
 p.quotation{
 	color: rgba(#000, 0.8);
 	font-style: italic;
@@ -172,26 +184,51 @@ img.contentimg{
 /*
 * Awesomesauce!
 */
-.arrow-down {
-	width: 0; 
-	height: 0; 
-	border-left: 100px solid transparent;
-	border-right: 100px solid transparent;
-	border-top: 150px solid #dadcdb;
-	z-index: 10000;
-	margin-bottom: -100px;
+
+.custom-alert{
+	position: absolute;
+	top: 30px;
+	right: 0;
+	left: 0;
 }
+
 section#profile{
-	border: 1px solid black;
-	padding: 10px 0;
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+	background-color: rgba(#fff, 0.8);
+	padding: 0;
+	.panel-heading{
+		width: 100%;
+	}
 	ul.profile_links{
 		list-style-type: none;
+		margin: 10px 0;
+		li{
+			float: left;
+			margin-bottom: 10px;
+			margin-right: 10px;
+			&:last-of-type{
+				margin-bottom: 0;
+				margin-right: 0;
+			}
+			&.avatar{
+				padding: 10px 0;
+				img{
+					width: 100px;
+					height: auto;
+					panel: 10px;
+				}
+			}
+		}
 	}
-	img.avatar{ 
-		width: 75px;
-		height: auto;
-	}
+
 }
+				img.avatar{
+					width: 100px;
+					height: auto;
+					panel: 10px;
+				}
 	.right-inner-addon {
     position: relative;
 	}
@@ -206,10 +243,30 @@ section#profile{
 	}
 #maps{
 	height: 400px;
-	z-index: 0;
 	width: 100%;
 	display: block;
 	margin: 0 auto;
+	position: relative;
+	border-top: 50px solid orange;
+	img{
+		z-index: -1!important;
+		position:absolute;
+		width: 100%;
+		height: 400px;
+	}
+	.arrow-down {
+		width: 150px; 
+		height: 0; 
+		border-left: 200px solid transparent;
+		border-right: 200px solid transparent;
+		border-top: 100px solid orange;
+		z-index: 10;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
 }
 footer{
 	background-color: $menu-tab-color;
@@ -217,3 +274,4 @@ footer{
 	height: 300px;
 	width: 100%;
 }
+

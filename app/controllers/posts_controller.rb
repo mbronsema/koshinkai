@@ -16,8 +16,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    if @post.prive
-      @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    if @post.prive == true
+      @post 
       respond_with @post
     else 
      @post = Post.find(params[:id])

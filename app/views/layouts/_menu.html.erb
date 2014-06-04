@@ -1,22 +1,23 @@
   <nav class="menu">
     <div class="container">
       <ul>
-        <li class="dropdown <%= current(root_path) %>"> 
-          <%= link_to "Home", root_path, class: 'dropdown-toggle' %>
-        </li>
       <% @menu.each do |m| %>
-        <% if m.prive == nil %>
+        <% if m.prive == false %>
           <% if m.parent_id == nil %>
-            <li class="dropdown <%= current("/#{m.menuname}") %>">
-            <%= link_to languageswitch(m.menuname.capitalize), m.menuname, class: 'dropdown-toggle' %><ul>
+            <li class="dropdown <%= current m.url %>">
+            <%= link_to m.menuname.capitalize, m.url, class: 'dropdown-toggle' %><ul>
             <% @menu.each do |d| %>
+            <% w = m %>
               <% if d.parent_id == m.id %>
-                <li class="<%= current(submenu_path(m.menuname, d.menuname))%>"><%= link_to d.menuname.capitalize, submenu_path(m.menuname, d.menuname) %></li>
+                <li class="<%= current(submenu_path(w.url, d.url))%>"><%= link_to d.menuname.capitalize, submenu_path(w.url, d.url) %></li>
               <% end %>
             <% end %>
             </ul></li>
           <% end %>
         <% end %>
+      <% end %>
+      <% if current_user.try(:admin?) %>
+        <li id="add_new_link"><%=link_to("+", new_category_path) %></li>
       <% end %>
       </ul>
       <%= form_tag(search_path, method: 'get') do %>
@@ -28,4 +29,4 @@
     <% end %>
     </div>
     <span class="colorbar"></span>
-  </nav>
+</nav>

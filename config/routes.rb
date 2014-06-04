@@ -16,15 +16,25 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
+<<<<<<< HEAD
   resources :contact
   
   match '/send_mail', to: 'contact#send_mail', via: 'post'
   get '/:headmenu/:menuname', to: 'categories#show', as: 'submenu'
+=======
+  resources :comments
+
+
+  
+
+  get '/:headurl/:url', to: 'categories#show', as: 'submenu'
+>>>>>>> FETCH_HEAD
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
+  get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
+  match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
+
   match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
-  get '/:headmenu/:menuname/postnew', to: 'categories#postnew', as: 'catpost' 
-  match '/:headmenu/:menuname/postcreate' => 'categories#postcreate', :via => :post
  # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

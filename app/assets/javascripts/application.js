@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require dropzone
 //= require lightbox2
 //= require gmaps
 //= require jquery_ujs

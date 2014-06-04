@@ -47,7 +47,7 @@
 		<th>Laatst aangemeld</th>
 		<th>Aanpassen</th>
 		<th>Verwijderen</th>
-		<th>profiel foto</th>
+		<th>Profiel foto</th>
 	</tr>
      
 	  <% @users.each do |u| %>
@@ -60,7 +60,7 @@
 		<td><%= link_to "Profiel bewerken", edit_user_path(u) %></td>
 			<td><%= link_to "Verwijderen", u, :method => :delete, :confirm => "Weet u het zeker?" %></td>
 	
-		<td><%= image_tag u.avatar %></td>
+		<td><%= image_tag u.avatar, :class =>"avatar" %></td>
 	</tr>
     <% end %>
   </table>

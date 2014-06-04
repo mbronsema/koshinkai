@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def fetch_menu
     @menu = Category.all
+    @menu2 = Category.all
   end
 
   def fetch_menu_private
