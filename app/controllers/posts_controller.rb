@@ -22,6 +22,8 @@ class PostsController < ApplicationController
       respond_with @post
     else 
      @post = Post.find(params[:id])
+     @comment = Comment.new
+     @comments = Comment.all
     end
   end
 

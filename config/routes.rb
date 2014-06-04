@@ -2,28 +2,27 @@ Rails.application.routes.draw do
   resources :adminpanels do
     resources :posts
     resources :users
-    
+
   end
 
+  resources :posts do
+    resources :comments   
+  end
 
   devise_for :users, :controllers => {:registrations => "my_devise/registrations"} 
  
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :adminpanels_destroy_user 
 
-             
+
   resources :users
-  resources :posts
   resources :events
   resources :categories
   resources :attachments
-  resources :comments
   resources :contact
-  
+
+ 
   match '/send_mail', to: 'contact#send_mail', via: 'post'
  
-  
-
-
   get '/search', to: 'posts#search', as: 'search'
   match '/adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
 

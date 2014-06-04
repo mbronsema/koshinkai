@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   include Pundit
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_filter :fetch_menu
   before_filter :fetch_menu_private
   protect_from_forgery with: :exception
