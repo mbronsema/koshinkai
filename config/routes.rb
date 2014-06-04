@@ -24,13 +24,13 @@ Rails.application.routes.draw do
   resources :comments
 
 
-  
+  get '/search', to: 'posts#search', as: 'search'
+  match '/adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
 
   get '/:headurl/:url', to: 'categories#show', as: 'submenu'
-  get '/search', to: 'posts#search', as: 'search'
-  match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
+  get '/:url', to: 'categories#show'
 
   match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
  # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
   root 'posts#home'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

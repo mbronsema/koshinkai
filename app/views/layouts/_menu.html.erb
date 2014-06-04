@@ -5,7 +5,7 @@
         <% if m.prive == false %>
           <% if m.parent_id == nil %>
             <li class="dropdown <%= current m.url %>">
-            <%= link_to m.menuname.capitalize, m.url, class: 'dropdown-toggle' %><ul>
+            <%= link_to m.menuname.capitalize, "/#{m.url}", class: 'dropdown-toggle' %><ul>
             <% @menu.each do |d| %>
             <% w = m %>
               <% if d.parent_id == m.id %>

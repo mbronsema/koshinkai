@@ -1,5 +1,7 @@
 <h1><%= @category.menuname %></h1>
-<%= link_to 'Nieuw '+@category.menuname+ ' bericht tovoegen', catpost_path %>
+<% unless @category.parent_id == nil %>
+<%= link_to 'Nieuw '+@category.menuname+ ' bericht toevoegen', catpost_path %>
+<% end %>
 <% @category.posts.each do |p| %>
   <h2><%= link_to p.title, post_path(p.id) %> </h2>
    <%= raw Shortcode.process(p.content) %>
