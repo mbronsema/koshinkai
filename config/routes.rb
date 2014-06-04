@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   resources :events
   resources :categories
   resources :attachments
-
-
-
+  resources :contact
+  
+  match '/send_mail', to: 'contact#send_mail', via: 'post'
   get '/:headmenu/:menuname', to: 'categories#show', as: 'submenu'
   get '/search', to: 'posts#search', as: 'search'
   match '/:adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'

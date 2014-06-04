@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       user.destroy
       redirect_to  adminpanels_path, :notice => "User deleted."
     else
-      redirect_to  adminpanels_path, :notice => "Can't delete yourself."
+      redirect_to adminpanels_path, :notice => "Can't delete yourself."
     end
   end
 end
