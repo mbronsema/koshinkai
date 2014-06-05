@@ -26,10 +26,6 @@ class UsersController < ApplicationController
   end
   
 
-  def invite_code 
-    @invite_code 
-  end 
-
   def update
     @user = User.find(params[:id])
     authorize @user

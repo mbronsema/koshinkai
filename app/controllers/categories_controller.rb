@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.menuname.downcase!
     if @category.save
-      redirect_to @category
+      redirect_to adminpanels_path
     else
       render 'new'
     end
