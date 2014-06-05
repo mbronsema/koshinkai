@@ -3,6 +3,7 @@
 		<div class="panel panel-primary">
 		<section id="home-news">
 			<span class="icon-nieuws"></span>
+			<h2>Nieuws</h2>
 			<div class="panel-body">
 					<% @post.each do |p| %>
 					<article>
@@ -13,7 +14,7 @@
 					<% break end %>
 			</div>
 		</section>
-		<div class="panel-bar">
+		<div class="panel-bar animated">
 			<a href="#">Lees meer</a>
 		</div>
 		</div>
@@ -21,8 +22,9 @@
 	<div class="col-md-4">
 		<div class="panel panel-primary">
 		<section id="home-info">
-		<span class="icon-info"></span>
-		<div class="panel-body">
+			<span class="icon-info"></span>
+			<h2>Info</h2>
+			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -30,13 +32,14 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
-			</section>
+		</section>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-primary">
 		<section id="home-location">
 		<span class="icon-locatie"></span>
+			<h2>Locatie</h2>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -54,8 +57,8 @@
 		<div class="panel panel-primary">
 		<section id="home-activiteiten">
 		<span class="icon-activiteiten"></span>
+			<h2>Activiteiten</h2>
 			<div class="panel-body">
-				<h2>Activiteiten</h2>
 				<% @event.each do |e| %>
 				<%= e.title %><br />
 				<%= e.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
@@ -70,8 +73,8 @@
 		<div class="panel panel-primary">
 			<section id="home-wijzigingen">
 			<span class="icon-wijzigingen"></span>
-			<div class="panel-body">
 			<h2>Wijzigingen</h2>
+			<div class="panel-body">
 			<% @eventchanged.each do |e| %>
 			<% unless e.updated_at == e.created_at %>
 				<%= e.title %><br />
@@ -88,6 +91,7 @@
 		<div class="panel panel-primary">
 		<section id="home-lesrooster">
 		<span class="icon-lesrooster"></span>
+			<h2>Lesrooster</h2>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

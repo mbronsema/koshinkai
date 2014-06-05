@@ -4,13 +4,18 @@ $(document).ready(function() {
 
     var mapsLat = 53.200117;
     var mapsLong= 5.809021;
-  var url = GMaps.staticMapURL({
-    size: [400, 1024],
-    lat: mapsLat,
-    lng: mapsLong
-  });
-  $('<img/>').attr('src', url).appendTo('#maps');
+    var url = GMaps.staticMapURL({
+        size: [400, 1024],
+        lat: mapsLat,
+        lng: mapsLong
+    });
+    $('<img/>').attr('src', url).appendTo('#maps');
 
+    $('.panel').on('mouseenter', function(){
+        $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");
+    }).on('mouseleave', function(){
+        $('.panel-bar', this).removeClass("flipInX").addClass("flipOutX");
+    });
 
     // Froala editor initialising
     $('form textarea').editable({inlineMode:false, height: 300,
