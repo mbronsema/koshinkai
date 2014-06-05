@@ -20,10 +20,11 @@
   
 </head>
 <body>
-<section id="header" >
+<section id="header">
   <header >
   <%= content_tag(:div, alert, class: "alert alert-danger container custom-alert animated pulse") if(flash[:alert]) %>
   <%= content_tag(:div, notice, class: "alert alert-success container custom-alert animated pulse") if(flash[:notice]) %>
+  <iframe width="560" height="315" src="//www.youtube.com/embed/f5Qd1weoc_I" frameborder="0" allowfullscreen></iframe>
     <% if user_signed_in? %>
     <section id="profile" class="col-md-3 panel panel-primary">
       <%= content_tag(:div, "Welkom, " + current_user.email, class: "panel-heading") %>
@@ -46,7 +47,7 @@
 <section>
 
 <%= yield %>  
-<section class="row">
+<section class="row" id="special">
   <div class="col-md-4">
       <div id="maps" ><img /></div>
   </div>
