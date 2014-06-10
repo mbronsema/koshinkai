@@ -12,12 +12,15 @@ header{
 	background-image: url('http://lorempixel.com/960/350/sports');
 	background-size: 100%;
 	background-position: center center;
-	min-height: 350px;
 	display: block;
 	position: relative;
-
+	min-height: 400px;
 }
-
+.page{
+	background-color: #fff;
+	padding: 20px;
+	
+}
 .panel{
 	border: 1px solid rgba($gray, 0.0)!important;
 	@include box-shadow(0, 5px, 0px, rgba(50, 50, 50, 0.13));
@@ -79,13 +82,15 @@ nav.menu {
 	line-height: 1em;
 	margin-bottom: 60px;
 	margin-top: 5px;
+	ul li:hover + #search{
+		background-color: none!important;
+	}
 	#search{
 		width: 150px;
 		font-size: 0.7em;
 		padding: 2px 5px;
 		margin-bottom: 3px;
 		margin-top: 5px;
-		float: right;
 	}
 	.colorbar{
 		height: 30px;
@@ -150,13 +155,15 @@ nav.menu {
 			left:100%;
 			top: 0;
 			background-color: adjust-lightness($menu-tab-color, -15);
+
 		}
 
 	    /* Make sub & sub-sub li's fill parent ul
      	* Add feint border to bottom to separate items */
 		li {
-			display: block;
+			display: inline-block;
 			border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
+			width: 100%;
 		}
 
 	}
