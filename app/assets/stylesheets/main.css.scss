@@ -300,6 +300,14 @@ section#profile{
 	    padding: 6px 12px;
 	    pointer-events: none;
 	}
+#calendar{
+	background-color: #fff;
+	a.fc-event{
+		background-color: #108ac2!important;
+		border-color: #108ac2!important;
+		color: #fff!important;
+	}
+}
 #maps{
 	height: 300px;
 	width: 100%;

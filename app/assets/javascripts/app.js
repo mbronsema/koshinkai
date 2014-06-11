@@ -41,11 +41,10 @@ $(document).ready(function() {
             {
                 url: '/events',
                 type: 'GET',
+                lan: 'nl',
                 error: function() {
                     alert('there was an error while fetching events!');
-                },
-                color: 'yellow',   // a non-ajax option
-                textColor: 'black' // a non-ajax option
+                }
             }
 
             // any other sources...

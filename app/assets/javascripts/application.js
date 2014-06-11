@@ -24,6 +24,7 @@
 //= require moment/nl
 //= require locales/bootstrap-datetimepicker.nl.js
 //= require fullcalendar
+//= require fullcalendar/lang/nl.js
 //= require turbolinks
 //= require_tree .
 
