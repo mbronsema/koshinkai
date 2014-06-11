@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 # Use jquery as the JavaScript library
 gem 'pundit'
-gem 'jquery-rails'
+gem 'jquery-rails', '~>2.1.0'
 gem 'carrierwave'
 gem 'shortcode'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -32,7 +32,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
 # Assets
-gem 'rails-assets-fullcalendar'
+gem 'rails-assets-fullcalendar', '~> 2.0.0'
 #gem 'rails-assets-bootstrap'
 gem 'rails-assets-froala-wysiwyg'
 gem 'momentjs-rails', '~> 2.5.0'

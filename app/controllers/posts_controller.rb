@@ -6,13 +6,19 @@ class PostsController < ApplicationController
   end
 
   def home
-      @event = Event.last(3)
+      @events = Event.where(repeat: 'Eenmalig').last(2)
+
       @eventchanged = Event.all
-      if @category = @category = Category.where.not(parent_id: nil).find_by_menuname(params[:name])
-      @post = Post.where(:category_id => @category.id).last(2)
-      else
-      @post = Post.all
-    end
+      @category = Category.where(url: 'nieuws').last
+      #Niews
+      #if @category
+      @post = Post.where(:category_id => @category.id).last
+      #else 
+        #@post = Post.last
+      #end
+     
+      #schedule
+      @scheduleevents = Event.where(repeat: 'Weekelijks')
   end
 
   def show

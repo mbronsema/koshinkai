@@ -5,13 +5,13 @@
 			<span class="icon-nieuws"></span>
 			<h2>Nieuws</h2>
 			<div class="panel-body">
-					<% @post.each do |p| %>
+
 					<article>
-						<h3><%= p.title %></h3>
-						<div class="date">Gemaakt op <%= p.created_at.strftime('%d-%m-%Y') %></div>
-						<div class="post-body"><%=  raw Shortcode.process(p.content) %></div>
+						<h3><%= @post.title %></h3>
+						<div class="date">Gemaakt op <%= @post.created_at.strftime('%d-%m-%Y') %></div>
+						<div class="post-body"><%= raw Shortcode.process(@post.content) %></div>
 					</article>
-					<% break end %>
+
 			</div>
 		</section>
 		<div class="panel-bar animated">
@@ -59,7 +59,7 @@
 		<span class="icon-activiteiten"></span>
 			<h2>Activiteiten</h2>
 			<div class="panel-body">
-				<% @event.each do |e| %>
+				<% @events.each do |e| %>
 				<%= e.title %><br />
 				<%= e.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
 				<%= e.ending_at.strftime('%d-%m-%Y om %H:%M.') %><br />
@@ -93,12 +93,13 @@
 		<span class="icon-lesrooster"></span>
 			<h2>Lesrooster</h2>
 			<div class="panel-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>
+				<% @scheduleevents.each do |e| %>
+				<%= e.title %>
+				<%= e.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
+				<%= e.ending_at.strftime('%d-%m-%Y om %H:%M.') %><br />
+				<% end %>
+				</p>
 			</div>
 		</section>
 		</div>
