@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
 respond_to :html, :json
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
   
 	def index
 		@events = Event.all
+    #@eventss = Event.all.repeat
 		#@event = Event.new
 		respond_with @events
 	end
