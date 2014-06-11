@@ -11,11 +11,9 @@ class PostsController < ApplicationController
       @eventchanged = Event.all
       @category = Category.where(url: 'nieuws').last
       #Niews
-      #if @category
+      if @category
       @post = Post.where(:category_id => @category.id).last
-      #else 
-        #@post = Post.last
-      #end
+      end
      
       #schedule
       @scheduleevents = Event.where(repeat: 'Weekelijks')

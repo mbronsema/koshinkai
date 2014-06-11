@@ -6,9 +6,13 @@
 			<h2>Nieuws</h2>
 			<div class="panel-body">
 					<article>
+						<% if @post %>
 						<h3><%= @post.title %></h3>
 						<div class="date">Gemaakt op <%= @post.created_at.strftime('%d-%m-%Y') %></div>
 						<div class="post-body"><%= raw Shortcode.process(@post.content) %></div>
+						<% else %> 
+							<p>Er zijn nog geen nieuwsberichten</p>
+						<% end %>
 					</article>
 
 			</div>
