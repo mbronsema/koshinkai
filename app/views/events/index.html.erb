@@ -2,8 +2,10 @@
 	<h1>Koshinkai agenda</h1>
 	<h3><%= t('calendar') %></h3>
 </div>
-	<%= link_to 'Een nieuwe activiteit aanmaken', new_event_path, class: 'btn btn-success' if current_user.try(:admin?) %>
+<div class="container">
+	<%= link_to t('New activity'), new_event_path, class: 'btn btn-success' if current_user.try(:admin?) %>
 	<div class="row">
 		<div id="calendar" class="col-md-12"></div>
+	</div>
 	</div>
 </div>

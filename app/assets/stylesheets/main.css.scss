@@ -301,7 +301,11 @@ section#profile{
 	    pointer-events: none;
 	}
 #calendar{
-	background-color: #fff;
+	//background-color: #fff;
+	margin-bottom: 20px;
+	.fc-content{
+		background-color: #fff;
+	}
 	a.fc-event{
 		background-color: #108ac2!important;
 		border-color: #108ac2!important;
