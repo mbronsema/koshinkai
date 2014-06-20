@@ -9,6 +9,28 @@ $(document).ready(function() {
         lat: mapsLat,
         lng: mapsLong
     });
+    $("#new_user").bootstrapValidator({
+        message: "Dit veld is niet goed ingevuld",
+        feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+        },
+
+            fields: {
+                "user[email]": {
+                    validators: {
+                        emailAddress: {
+                            message: 'Het email veld is vereist.'
+                        },
+                        notEmpty:{
+                            message: 'Dit veld mag niet leeg zijn.'
+                        }
+                    }
+                }
+            }
+
+    });
     $('<img/>').attr('src', url).appendTo('#maps');
 
     $('.panel').on('mouseenter', function(){
