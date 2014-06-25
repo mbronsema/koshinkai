@@ -9,12 +9,12 @@ $white: #fff;
 $gray: #868e96;
 
 header{
-	background-image: url('http://lorempixel.com/960/350/sports');
+	background-image: url('header.png');
 	background-size: 100%;
 	background-position: center center;
 	display: block;
 	position: relative;
-	min-height: 400px;
+	min-height: 500px;
 }
 .page{
 	background-color: #fff;
@@ -28,6 +28,9 @@ header{
 	min-height: 300px;
 	position: relative;
 	padding: 0 0 40px 0;
+	h2{
+		margin-left: 15px;
+	}
 	.panel-bar{
 		position: absolute;
 		bottom: 0;
@@ -92,12 +95,12 @@ nav.menu {
 		margin-bottom: 3px;
 		margin-top: 5px;
 	}
-	.colorbar{
-		height: 30px;
-		background-color: red;
-		display: block;
-		width: 100%;
-	}
+	// .colorbar{
+	// 	height: 30px;
+	// 	background-color: red;
+	// 	display: block;
+	// 	width: 100%;
+	// }
 	ul{
 		// background-image: url("martinb.jpg");
 		// background-repeat: repeat-x;
@@ -113,6 +116,12 @@ nav.menu {
 		display: inline-block;
 		position: relative;
 		border-radius: none;
+		&#search{
+			background-color: rgba(255,255, 255, 1)!important;
+			&:hover{
+				background-color: rgba(255,255, 255, 1)!important;
+			}
+		}
 		&:first-of-type{
 			margin: 0 0 0 10px;
 		}
@@ -123,7 +132,7 @@ nav.menu {
 			}
 		}
 		&:hover{
-			border-radius: none;
+			border-radius: none!important;
 			background-color: rgba(230,168, 42, .5);
 		}
 		/* Space out the links */
@@ -172,12 +181,12 @@ nav.menu {
 		}
 	/* Highlight li on hover */
 	li:hover {
-		border-top-left-radius: 5px;
-		border-top-right-radius: 5px;
+
 		/* Change anchor colour to highlighted text */
 		> a {
 			color: $highlight-text;
 			background: none;
+			text-decoration: none;
 		}
 
 		/* Display subs and sub-subs on parent hover */
@@ -248,7 +257,12 @@ img.contentimg{
 }
 #special{
 	background-color: $menu-tab-color;
+	margin-top: 20px;
+	p{
+		font-weight: bold;
+	}
 }
+
 section#profile{
 	position: absolute;
 	bottom: 0%;
@@ -301,7 +315,11 @@ section#profile{
 	    pointer-events: none;
 	}
 #calendar{
-	background-color: #fff;
+	//background-color: #fff;
+	margin-bottom: 20px;
+	.fc-content{
+		background-color: #fff;
+	}
 	a.fc-event{
 		background-color: #108ac2!important;
 		border-color: #108ac2!important;
@@ -314,13 +332,7 @@ section#profile{
 	display: block;
 	margin: 0 auto;
 	position: relative;
-	img{
-		z-index: 0!important;
-		position:absolute;
-		width: 100%;
-		height: 300px;
-		margin-left: -20px;
-	}
+
 	.arrow-down {
 		width: 150px; 
 		height: 0; 
