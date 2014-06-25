@@ -4,12 +4,42 @@ $(document).ready(function() {
 
     var mapsLat = 53.200117;
     var mapsLong= 5.809021;
-    var url = GMaps.staticMapURL({
-        size: [400, 1024],
-        lat: mapsLat,
-        lng: mapsLong
+    var map =new GMaps({
+      div: '#maps',
+      lat: mapsLat,
+      lng: mapsLong
     });
-    $('<img/>').attr('src', url).appendTo('#maps');
+    map.addMarker({
+      lat: mapsLat,
+      lng: mapsLong,
+      title: 'Koshinkai',
+      infoWindow: {
+         content: 'Aikido Koshinkai<br/> Emmakade 59 <br/> Leeuwarden'
+      }
+    });
+
+    $("#new_user").bootstrapValidator({
+        message: "Dit veld is niet goed ingevuld",
+        feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+        },
+
+            fields: {
+                "user[email]": {
+                    validators: {
+                        emailAddress: {
+                            message: 'Het email veld is vereist.'
+                        },
+                        notEmpty:{
+                            message: 'Dit veld mag niet leeg zijn.'
+                        }
+                    }
+                }
+            }
+
+    });
 
     $('.panel').on('mouseenter', function(){
         $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");

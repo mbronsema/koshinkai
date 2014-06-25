@@ -15,7 +15,7 @@ module PostsHelper
       end 
     else
       video = content
-    end 
+    end
     return video
   end
 end
