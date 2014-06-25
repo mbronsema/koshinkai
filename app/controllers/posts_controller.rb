@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, except: [:home]
+  before_filter :authenticate_user!, except: [:home, :show]
  respond_to :html, :json
   def index
    redirect_to root_path
@@ -9,8 +9,9 @@ class PostsController < ApplicationController
       @events = Event.where(repeat: 'Eenmalig').last(2)
 
       @eventchanged = Event.all
-      @category = Category.where(url: 'nieuws').last
+
       #Niews
+      @category = Category.where(url: 'nieuws').last
       if @category
       @post = Post.where(:category_id => @category.id).last
       end
@@ -26,8 +27,9 @@ class PostsController < ApplicationController
       respond_with @post
     else 
      @post = Post.find(params[:id])
-     @comment = Comment.new
-     @comments = Comment.all
+     # @comment = Comment.new
+     # @comments = Comment.all
+     respond_with @post
     end
   end
 

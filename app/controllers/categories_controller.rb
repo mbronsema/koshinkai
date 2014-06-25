@@ -2,9 +2,12 @@ class CategoriesController < ApplicationController
   respond_to :html, :json
   before_action :authenticate_user!, except: [:show]
   def show
-    unless @category = Category.find_by_url(params[:url])
-      redirect_to root_path
-    end
+    # unless @category = Category.find_by_url(params[:url])
+    #   redirect_to root_path
+    @category = Category.find_by_url(params[:url])
+    @posts = Post.where(category_id: @category.id).all
+    
+    # end
   end
 
   def new

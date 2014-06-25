@@ -234,7 +234,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 3.1.1)
   bootstrap3-datetimepicker-rails (~> 3.0.0)
   carrierwave
   coffee-rails (~> 4.0.0)
