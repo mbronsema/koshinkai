@@ -3,18 +3,16 @@
 		<div class="panel panel-primary">
 		<section id="home-news">
 			<span class="icon-nieuws"></span>
-			<h2>Nieuws</h2>
 			<div class="panel-body">
-					<article>
-						<% if @post %>
-						<h3><%= @post.title %></h3>
-						<div class="date">Gemaakt op <%= @post.created_at.strftime('%d-%m-%Y') %></div>
-						<div class="post-body"><%= raw Shortcode.process(@post.content) %></div>
-						<% else %> 
-							<p>Er zijn nog geen nieuwsberichten</p>
-						<% end %>
-					</article>
-
+				<article>
+					<% if @news %>
+					<h3><%= @news.title %></h3>
+					<div class="date">Gemaakt op <%= @news.created_at.strftime('%d-%m-%Y') %></div>
+					<div class="post-body"><%= raw Shortcode.process(@news.content) %></div>
+					<% else %> 
+						<p>Er zijn nog geen nieuwsberichten</p>
+					<% end %>
+				</article>
 			</div>
 		</section>
 		<div class="panel-bar animated">
@@ -26,14 +24,15 @@
 		<div class="panel panel-primary">
 		<section id="home-info">
 			<span class="icon-info"></span>
-			<h2>Info</h2>
 			<div class="panel-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<article>
+					<% if @info %>
+					<h3><%= @info.title %></h3>
+					<div class="post-body"><%= raw Shortcode.process(@info.content) %></div>
+					<% else %> 
+						<p>Info check anders foutmelding als er info is dan werkt dit gewoon goed nu nog niet</p>
+					<% end %>
+				</article>
 			</div>
 		</section>
 		</div>
@@ -42,14 +41,15 @@
 		<div class="panel panel-primary">
 		<section id="home-location">
 		<span class="icon-locatie"></span>
-			<h2>Locatie</h2>
 			<div class="panel-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<article>
+					<% if @location %>
+					<h3><%= @location.title %></h3>
+					<div class="post-body"><%= raw Shortcode.process(@location.content) %></div>
+					<% else %> 
+						<p>Locatie check anders foutmelding wanneer de locatie data er is dan werkt dit gewoon goed nu nog niet</p>
+					<% end %>
+				</article>
 			</div>
 			</section>
 		</div>
@@ -60,7 +60,6 @@
 		<div class="panel panel-primary">
 		<section id="home-activiteiten">
 		<span class="icon-activiteiten"></span>
-			<h2>Activiteiten</h2>
 			<div class="panel-body">
 				<% @events.each do |e| %>
 				<%= e.title %><br />
@@ -76,15 +75,16 @@
 		<div class="panel panel-primary">
 			<section id="home-wijzigingen">
 			<span class="icon-wijzigingen"></span>
-			<h2>Wijzigingen</h2>
 			<div class="panel-body">
-			<% @eventchanged.each do |e| %>
-			<% unless e.updated_at == e.created_at %>
-				<%= e.title %><br />
-				<%= e.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
-				<%= e.ending_at.strftime('%d-%m-%Y om %H:%M.') %><br />
-				<%= sanitize e.message, tags: ['p', 'em', 'u', 'strong'] %>
+				<% unless @eventschanged.length == 0 %>
+			<% @eventschanged.each do |ec| %>
+				<%= ec.title %><br />
+				<%= ec.starting_at.strftime('%d-%m-%Y om %H:%M.') %>
+				<%= ec.ending_at.strftime('%d-%m-%Y om %H:%M.') %><br />
+				<%= sanitize ec.message, tags: ['p', 'em', 'u', 'strong'] %>
 				<% end %>
+				<% else %> 
+					<p>Er zijn momenteel geen wijzigingen</p>
 				<% end %>
 			</div>
 			</section>

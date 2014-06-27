@@ -6,18 +6,33 @@ class PostsController < ApplicationController
   end
 
   def home
-      @events = Event.where(repeat: 'Eenmalig').last(2)
+    #News
+    @category = Category.where(url: 'nieuws').last
+    if @category
+      @news = Post.where(:category_id => @category.id).last
+    end
 
-      @eventchanged = Event.all
+    #Information
+    @category = Category.where(url: 'info').last
+    if @category
+      @info = Post.where(:category_id => @category.id).last
+    end
 
-      #Niews
-      @category = Category.where(url: 'nieuws').last
-      if @category
-      @post = Post.where(:category_id => @category.id).last
-      end
+    #Location
+    @category = Category.where(url: 'location').last
+    if @category
+      @location = Post.where(:category_id => @category.id).last
+    end
+
+    #Events that does not repeat
+    @events = Event.where(repeat: 'Eenmalig', alteration: false).last(2)
+
+    #Alterations
+    @eventschanged = Event.where(alteration: true).last(2)
+
+    #Schedule
+    @scheduleevents = Event.where(repeat: 'Weekelijks', alteration: false)
      
-      #schedule
-      @scheduleevents = Event.where(repeat: 'Weekelijks')
   end
 
   def show
