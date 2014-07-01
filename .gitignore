@@ -18,3 +18,5 @@
 gem_graph.png
 
 public/uploads/user/avatar/5/logo.png
+
+*.lock
