@@ -70,7 +70,8 @@ $icon-names: (
 		height: 100px;
 		width: 100px;
 		display: block;
-		margin: -50px auto -20px auto;		
+		margin: -50px auto -20px auto;
+
 	}
 }
 .row.home{
@@ -440,6 +441,29 @@ footer{
 				margin:  15px 30px;
 				height: 30px;
 			}
+		}
+	}
+}
+.user-profile{
+	h2{
+		margin-top: 50px;
+	}
+	.btn-edit{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		margin: 0;
+		left: 0;
+	}
+	.icon-avatar{
+		display: block;
+		z-index: 100;
+		margin: -50px auto;
+		height: 100px;
+		width: 100px;
+		img{
+			height: inherit;
+			width: auto;
 		}
 	}
 }
