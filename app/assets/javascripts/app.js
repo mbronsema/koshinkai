@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     // Froala editor initialising
 
-    $('#add_post_form  textarea').editable({inlineMode:false, height: 300,
+    $('#new_post  textarea').editable({inlineMode:false, height: 300,
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
                                 paragraphy: true});
     $('#comment_form  textarea').editable({inlineMode:false, height: 150, width: 350,
