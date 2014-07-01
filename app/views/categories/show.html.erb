@@ -12,7 +12,7 @@
     <% if @headcategory %>
       <h2><%= link_to p.title, submenupost_path(@headcategory.url, @category.url, p.id) %> </h2>
     <% else %>
-      <h2><%= link_to p.title, menupost_path(@category.url, p.id) %> </h2>
+      <h2><%= link_to p.title, "posts/#{p.id}" %> </h2>
     <% end %>
     <%= raw Shortcode.process(p.content) %>
     Gemaakt op <%= DTformat p.created_at %><br />
