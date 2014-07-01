@@ -1,36 +1,38 @@
-<div class"container">
-<h1> <%= @post.title %></h1>
-<% @post.content  %>
+<div class="row">
+  <div class="col-md-8 page">
+    <h1> <%= @post.title %> </h1>
+    Content: <br /><%= raw Shortcode.process(@post.content) %>
+    Content: <br /><%= raw videomatcher(@post.content) %>
 
-Akkoord: <%= @post.approved %><br />
-Prive: <%= @post.prive %><br />
-Category id<%= @post.category_id %>
+    Prive: <%= @post.prive %><br />
+    Category id<%= @post.category_id %>
 
-<h2>Reacties</h2>
-<% @post.comments.each do |c| %>
-  <p>
-    <strong>Title:</strong>
-    <%= c.title %>
-  </p>
- 
-  <p>
-    <strong>Bericht:</strong>
-    <%= c.message %>
-  </p>
-<% end %>
-<section id="comment_form">
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <!--<p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>-->
-  <p>
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </p>
-  <p>
-    <%= f.submit "Plaats reactie", class: "btn btn-primary" %>
-  </p>
-<% end %>
-</section>
+    <h3>Reacties</h3>
+    <% @post.comments.each do |c| %>
+      <p>
+        <strong>Title:</strong>
+        <%= c.title %>
+      </p>
+     
+      <p>
+        <strong>Bericht:</strong>
+        <%= c.message %>
+      </p>
+    <% end %>
+
+    <h3>Plaats een reactie:</h3>
+    <%= form_for([@post, @post.comments.build]) do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :message %><br>
+        <%= f.text_area :message %>
+      </p>
+      <p>
+        <%= f.submit "Reactie plaatsen", class: 'btn btn-primary' %>
+      </p>
+    <% end %>
+  </div>
 </div>

@@ -18,7 +18,7 @@
             <% if m.parent_id == nil %>
             <li class="dropdown <%= current('/'+m.url) %>">
               <%= 
-                  link_to(m.menuname.capitalize, "/#{m.url}")
+                  link_to(m.menuname.capitalize, headmenu_path)
               %>
               <ul class="dropdown-menu" role="menu">
                 <% @menu.each do |d| %>

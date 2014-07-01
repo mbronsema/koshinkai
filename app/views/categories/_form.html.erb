@@ -1,13 +1,19 @@
 <%= form_for @category do |c| %>
+<% if current_page?('/categories/new') %>
   <select id="category_parent_id" name="category[parent_id]">
     <option value="<%= nil %>">Hoofdcategory</option>
       <% @categories.each do |m| %>
         <option value="<%= m.id %>"><%= m.menuname %></option>
       <% end %>
   </select><br />
+  <% end %>
   <%= c.label :menuname, "Menunaam:" %><br /> <%= c.text_field :menuname %><br />
   <%= c.label :url, "Url:" %> <br /><%= c.text_field :url %><br />
   <%= c.check_box :prive, {}, "true", "false" %>
   <%= c.label(:prive, "Prive") %><br />
-  <%= c.submit %>
+  <% if current_page?('/categories/new') %>
+      <%= c.submit "Categorie toevoegen", class: 'btn btn-primary' %>
+    <% else %>
+      <%= c.submit "Categorie wijzigen", class: "btn btn-warning" %>
+    <% end %>
 <% end %>

@@ -29,11 +29,18 @@ Rails.application.routes.draw do
   match '/adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
 
-  #Categories routes
-  get '/:headurl/:url', to: 'categories#show', as: 'submenu'
+  get '/postnew', to: 'categories#postnew', as: 'catposthead'
+ 
   get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
-  get '/:url', to: 'categories#show'
+  match '/postcreate' => 'categories#postcreate', :via => :post
+
+  get ':headurl/:url', to: 'categories#show', as: 'submenu'
+  get ':url', to: 'categories#show', as: 'headmenu'
+  get ':headurl/:url/:id', to: 'posts#show', as: 'submenupost'
+  get ':url/:id', to: 'posts#show', as: 'menupost' 
+    
+
 
   # match '/:admin/destroypost' => 'admin#destroypost', :via => :delete, as: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.

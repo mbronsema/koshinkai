@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
     # unless @category = Category.find_by_url(params[:url])
     #   redirect_to root_path
     @category = Category.find_by_url(params[:url])
+    if @category.parent_id != nil
+    @headcategory = Category.where(:id => @category.parent_id).last
+
+   end
     @posts = Post.where(category_id: @category.id).all
     
     # end
@@ -25,18 +29,32 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit 
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to adminpanels_path
+    else
+      render 'edit'
+    end
+  end
+
   def postnew 
-    @category = Category.find_by_url(params[:url])
-    @post = Post.new
+    #@category = Category.find_by_url(params[:url])
+    @po = Post.new
   end
 
   def postcreate
-    @category = Category.find_by_url(params[:url])
+   # @category = Category.find_by_url(params[:url])
     @post = Post.new(post_params)
-    @post.category_id = @category.id
+    #@post.category_id = @category.id
     @post.user_id = current_user.id
+    @post.prive = true
     if @post.save
-      redirect_to submenu_path
+      redirect_to @post
     else
       render 'postnew'
     end
@@ -45,7 +63,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to categories_path
+    redirect_to adminpanels_path
   end
 
   private

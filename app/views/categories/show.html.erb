@@ -1,15 +1,22 @@
 <div class="row">
 
   <div class="col-md-8 page">
-  <h1><%= @category.menuname %></h1>
-  <% unless @category.parent_id == nil %>
-  <%= link_to 'Nieuw '+@category.menuname+ ' bericht toevoegen', catpost_path %>
-  <% end %>
-  <% @category.posts.each do |p| %>
-    <h2><%= link_to p.title, post_path(p.id) %> </h2>
-     <%= raw Shortcode.process(p.content) %>
-     Gemaakt op <%= DTformat p.created_at %><br />
-  <% end %> 
+    <h1><%= @category.menuname %></h1>
+    <% #unless @category.parent_id == nil %>
+    <%#= link_to 'Nieuw '+@category.menuname+ ' bericht toevoegen', catpost_path %>
+    <% #end %>
+      <% if current_page?('/lesmateriaal') || current_page?('/lesmateriaal/' + @category.url) %>
+      <%= link_to 'Een nieuw bericht aanmaken', catposthead_path,  class: 'btn btn-success' %>
+    <% end %>
+    <% @category.posts.each do |p| %>
+    <% if @headcategory %>
+      <h2><%= link_to p.title, submenupost_path(@headcategory.url, @category.url, p.id) %> </h2>
+    <% else %>
+      <h2><%= link_to p.title, menupost_path(@category.url, p.id) %> </h2>
+    <% end %>
+    <%= raw Shortcode.process(p.content) %>
+    Gemaakt op <%= DTformat p.created_at %><br />
+    <% end %> 
   </div>
   <div class="col-md-4">
     <div class="panel">
