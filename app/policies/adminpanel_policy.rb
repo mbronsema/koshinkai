@@ -1,5 +1,6 @@
 class AdminpanelPolicy < Struct.new (:user, :event, :post) 
+  
   def index?
-    user.admin?
-  end 
+     @user.member?
+  end
 end

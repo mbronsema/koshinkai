@@ -1,7 +1,9 @@
 class EventPolicy < Struct.new(:user, :event)
+    
     def update?
       user.admin?
     end
+    
     def new?
       user.admin?
     end

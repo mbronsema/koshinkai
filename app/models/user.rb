@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :member, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :member
   end
                 
   has_many :posts
