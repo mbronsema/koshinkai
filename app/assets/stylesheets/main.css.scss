@@ -83,6 +83,10 @@ nav.menu{
 	background-color: $white;
 	ul{
 		list-style-type: none;
+		li.current-page-item{
+			background-color: $orange;
+			color: $white;
+		}
 		> li.dropdown, > #add_new_link, > #search{
 			display: inline-block;
 			padding: 20px 15px;

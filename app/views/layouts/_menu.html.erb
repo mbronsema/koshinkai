@@ -14,21 +14,18 @@
     <div class="collapse navbar-collapse" id="koshinkai-menu">
       <ul class="nav navbar-nav">
         <% @menu.each do |m| %>
-          <% if m.prive == false %>
+          <% if current_user || m.prive == false %>
             <% if m.parent_id == nil %>
-            <li class="dropdown <%= current m.url %>">
+            <li class="dropdown <%= current('/'+m.url) %>">
               <%= 
-                    link_to(m.menuname.capitalize, "/#{m.url}")
-                  
+                  link_to(m.menuname.capitalize, "/#{m.url}")
               %>
               <ul class="dropdown-menu" role="menu">
                 <% @menu.each do |d| %>
-                  <% if d.parent_id  == m.id %>
                    <%= content_tag(:li,
-                        link_to(d.menuname.capitalize, "#{submenu_path(m.url, d.url)}"),
-                        class: "#{current d.url}"
-                      ) %>
-                  <% end %>
+                        link_to(d.menuname.capitalize, submenu_path(m.url, d.url)),
+                        class: "#{current(submenu_path(m.url, d.url))}"
+                      ) if d.parent_id == m.id%>
                 <% end %>
               </ul>
             <% end %>
@@ -36,6 +33,11 @@
           <% end %>
         <% end %>
       </ul>
+      <% if current_user.try(:admin?) %>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="add_new_link"><%=link_to("+", new_category_path) %></li>
+        </ul>
+      <% end %>
       <%= form_tag(search_path, method: 'get', class: "navbar-form navbar-right", role: "search") do %>
         <div class="right-inner-addon">
           <i class="glyphicon glyphicon-search"></i>

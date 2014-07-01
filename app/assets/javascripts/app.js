@@ -20,28 +20,27 @@ $(document).ready(function() {
 
     
 
-    $("#new_user").bootstrapValidator({
-        message: "Dit veld is niet goed ingevuld",
-        feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-        },
+    // $("#new_user").bootstrapValidator({
+    //     message: "Dit veld is niet goed ingevuld",
+    //     feedbackIcons: {
+    //             valid: 'glyphicon glyphicon-ok',
+    //             invalid: 'glyphicon glyphicon-remove',
+    //             validating: 'glyphicon glyphicon-refresh'
+    //     },
+    //     fields: {
+    //         "user[email]": {
+    //             validators: {
+    //                 emailAddress: {
+    //                     message: 'Het email veld is vereist.'
+    //                 },
+    //                 notEmpty:{
+    //                     message: 'Dit veld mag niet leeg zijn.'
+    //                 }
+    //             }
+    //         }
+    //     }
 
-            fields: {
-                "user[email]": {
-                    validators: {
-                        emailAddress: {
-                            message: 'Het email veld is vereist.'
-                        },
-                        notEmpty:{
-                            message: 'Dit veld mag niet leeg zijn.'
-                        }
-                    }
-                }
-            }
-
-    });
+    // });
     // $('.panel').on('mouseenter', function(){
     //     $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");
     // }).on('mouseleave', function(){
@@ -57,10 +56,7 @@ $(document).ready(function() {
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
                                 paragraphy: true});
     $("header").fitVids();
-    $('.nav li.dropdown a').hover( function(e){
-        console.log($(this, 'ul.dropdown-menu'));
-    });
-    // Initialise the datetimepicker
+        // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
 		format: 'YYYY-MM-DD HH:mm',
 		maskInput: true,
