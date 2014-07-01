@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604144833) do
+ActiveRecord::Schema.define(version: 20140627144932) do
 
   create_table "attachments", force: true do |t|
     t.string   "title"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140604144833) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "alteration"
   end
 
   create_table "lesmateriaals", force: true do |t|

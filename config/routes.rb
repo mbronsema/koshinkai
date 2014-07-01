@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   match '/adminpanels' => 'adminpanels#index', :via => :get, as: 'admin'
   match '/adminpanels/users', to: 'adminpanels#users', via: 'get'
 
-  #Categorie routes
+  #Categories routes
   get '/:headurl/:url', to: 'categories#show', as: 'submenu'
   get '/:headurl/:url/postnew', to: 'categories#postnew', as: 'catpost' 
   match '/:headurl/:url/postcreate' => 'categories#postcreate', :via => :post
