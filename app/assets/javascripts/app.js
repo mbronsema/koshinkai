@@ -18,6 +18,8 @@ $(document).ready(function() {
       }
     });
 
+    
+
     $("#new_user").bootstrapValidator({
         message: "Dit veld is niet goed ingevuld",
         feedbackIcons: {
@@ -40,15 +42,18 @@ $(document).ready(function() {
             }
 
     });
-
-    $('.panel').on('mouseenter', function(){
-        $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");
-    }).on('mouseleave', function(){
-        $('.panel-bar', this).removeClass("flipInX").addClass("flipOutX");
-    });
+    // $('.panel').on('mouseenter', function(){
+    //     $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");
+    // }).on('mouseleave', function(){
+    //     $('.panel-bar', this).removeClass("flipInX").addClass("flipOutX");
+    // });
 
     // Froala editor initialising
-    $('form textarea').editable({inlineMode:false, height: 300,
+
+    $('#add_post_form  textarea').editable({inlineMode:false, height: 300,
+                                buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
+                                paragraphy: true});
+    $('#comment_form  textarea').editable({inlineMode:false, height: 150, width: 350,
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
                                 paragraphy: true});
     $("header").fitVids();

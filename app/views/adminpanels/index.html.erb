@@ -1,6 +1,13 @@
 <% #content_for :adminpanel do %>
 <%= link_to 'Nieuwe subcategorie maken', new_category_path %>
-<div class="table-responsive">
+<nav id="admin-tabs">
+	<ul>
+		<li><a href="#">link</a></li>
+		<li><a href="#">link</a></li>
+		<li><a href="#">link</a></li>
+	</ul>
+</nav>
+<div class="table-responsive admin-section">
   <h2>Artikelen en berichten</h2>
   <table class="table table-striped">
     <tr><th>Titel</th><th>Aangenaakt op</th><th>Aangepast op</th><th>verwijderen</th><th>bewerken</th></tr>
@@ -19,7 +26,7 @@
 
 
 
-<div class="table-responsive">
+<div class="table-responsive admin-section">
   <h2>Activiteiten</h2>
   <table class="table table-striped">
     <tr><th>Titel</th>
@@ -38,7 +45,7 @@
   </table>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive admin-section">
   <h2>Leden</h2>
   <table class="table table-striped">
     <tr>

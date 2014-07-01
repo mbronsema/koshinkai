@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require lightbox2
+//= require bootstrap
 //= require gmaps
 //= require jquery_ujs
 //= require jquery.turbolinks
@@ -27,5 +28,3 @@
 //= require fullcalendar/lang/nl.js
 //= require turbolinks
 //= require_tree .
-
-

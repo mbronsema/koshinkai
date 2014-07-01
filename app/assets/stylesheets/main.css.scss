@@ -7,6 +7,7 @@ $black: #000;
 $light: #efefef;
 $white: #fff;
 $gray: #868e96;
+$orange: #eb9133;
 
 header{
 	background-image: url('header.png');
@@ -16,11 +17,12 @@ header{
 	position: relative;
 	min-height: 500px;
 }
-.page{
-	background-color: #fff;
-	padding: 20px;
+
+// .page{
+// 	background-color: #fff;
+// 	padding: 20px;
 	
-}
+// }
 .panel{
 	border: 1px solid rgba($gray, 0.0)!important;
 	@include box-shadow(0, 5px, 0px, rgba(50, 50, 50, 0.13));
@@ -36,10 +38,10 @@ header{
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: 40px;
+		height: 60px;
 		background-color: $menu-tab-color;
 		text-align: left;
-		padding: 5px 15px;
+		padding: 10px 15px;
 		a{
 			color: #fff;
 		}
@@ -77,138 +79,172 @@ $icon-names: (
 		margin-bottom: 80px;
 	}
 }
-nav.menu {
+nav.menu{
 	background-color: $white;
-	text-align: center;
-	font-family: BebasNeueRegular, arial, sans;
-	font-size: 140%;
-	line-height: 1em;
-	margin-bottom: 60px;
-	margin-top: 5px;
-	ul li:hover + #search{
-		background-color: none!important;
-	}
-	#search{
-		width: 150px;
-		font-size: 0.7em;
-		padding: 2px 5px;
-		margin-bottom: 3px;
-		margin-top: 5px;
-	}
-	// .colorbar{
-	// 	height: 30px;
-	// 	background-color: red;
-	// 	display: block;
-	// 	width: 100%;
-	// }
 	ul{
-		// background-image: url("martinb.jpg");
-		// background-repeat: repeat-x;
-		// background-size: 10%;
-		display: block;
-		text-align:left;
-		padding-top:5px;
-		width: 100%;
-		float: left;
-	}
-	/* Main menu items */
-	li {
-		display: inline-block;
-		position: relative;
-		border-radius: none;
-		&#search{
-			background-color: rgba(255,255, 255, 1)!important;
-			&:hover{
-				background-color: rgba(255,255, 255, 1)!important;
-			}
-		}
-		&:first-of-type{
-			margin: 0 0 0 10px;
-		}
-		&.current-page-item{
-			background-color: rgba(230,168, 42, 1);
-			a{
-				color: $white;
-			}
-		}
-		&:hover{
-			border-radius: none!important;
-			background-color: rgba(230,168, 42, .5);
-		}
-		/* Space out the links */
-		a {
-			padding: .7em;
-			display: block;
-			font-size: 0.8em;
-		}
-
-    	/* Hide sub menus & sub-sub menus
-     	* Position *underneath* originating li (see ul ul below) */
-		ul, ul ul {
-			display: none;
-			position: absolute;
-			z-index: 999;
-			top: 100%;
-			left: 0;
-			width: 12em;
-			background-color: adjust-lightness($menu-tab-color, -10);
-			@include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
-			background-color: $menu-tab-color;
-			// background-image: url('./martinb.jpg');
-			// background-repeat: no-repeat;
-			// background-size: 100%;
-		}
-
-    	/* Position sub-subs to right of parent li */
-		ul ul {
-			left:100%;
-			top: 0;
-			background-color: adjust-lightness($menu-tab-color, -15);
-
-		}
-
-	    /* Make sub & sub-sub li's fill parent ul
-     	* Add feint border to bottom to separate items */
-		li {
+		list-style-type: none;
+		> li.dropdown, > #add_new_link, > #search{
 			display: inline-block;
-			border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
-			width: 100%;
+			padding: 20px 15px;
+			position: relative;
+			top: 0;
+			left: 0;
+			&:hover{
+				> ul{
+					background-color: $white;
+					border: 1px solid silver;
+					display: block;
+					width: 200px;
+					position: absolute;
+					top: 1%;
+					left: 0;
+					z-index: 999;
+					li{
+						a{
+							padding: 0;
+							text-align: left;
+						}
+					}
+				}
+			}	
+			> ul{
+				display: none;
+			}
 		}
-
 	}
-		> #add_new_link{
-			border: 1px solid black!important;
-		}
-	/* Highlight li on hover */
-	li:hover {
-
-		/* Change anchor colour to highlighted text */
-		> a {
-			color: $highlight-text;
-			background: none;
-			text-decoration: none;
-		}
-
-		/* Display subs and sub-subs on parent hover */
-		> ul {
-			display: block;
-		}
-
-  	}
-
-	/* Don't display menus further than 3 deep in ul tree */
-	ul ul ul li:hover ul {
-		display: none;
-	}
-
-	/* Make sure no padding & margins round <ul>s.
-	 * Very likely to have been set in CSS for rest of site */
-	ul {
-		padding: 0;
-		margin: 0;
-	}
-
 }
+// nav.menu {
+// 	background-color: $white;
+// 	text-align: center;
+// 	font-family: BebasNeueRegular, arial, sans;
+// 	font-size: 140%;
+// 	line-height: 1em;
+// 	margin-bottom: 60px;
+// 	margin-top: 5px;
+// 	ul li:hover + #search{
+// 		background-color: none!important;
+// 	}
+// 	#search{
+// 		width: 150px;
+// 		font-size: 0.7em;
+// 		padding: 2px 5px;
+// 		margin-bottom: 3px;
+// 		margin-top: 5px;
+// 	}
+// 	// .colorbar{
+// 	// 	height: 30px;
+// 	// 	background-color: red;
+// 	// 	display: block;
+// 	// 	width: 100%;
+// 	// }
+// 	ul{
+// 		// background-image: url("martinb.jpg");
+// 		// background-repeat: repeat-x;
+// 		// background-size: 10%;
+// 		display: block;
+// 		text-align:left;
+// 		padding-top:5px;
+// 		width: 100%;
+// 		float: left;
+// 	}
+// 	/* Main menu items */
+// 	li {
+// 		display: inline-block;
+// 		position: relative;
+// 		border-radius: none;
+// 		&#search{
+// 			background-color: rgba(255,255, 255, 1)!important;
+// 			&:hover{
+// 				background-color: rgba(255,255, 255, 1)!important;
+// 			}
+// 		}
+// 		&:first-of-type{
+// 			margin: 0 0 0 10px;
+// 		}
+// 		&.current-page-item{
+// 			background-color: rgba(230,168, 42, 1);
+// 			a{
+// 				color: $white;
+// 			}
+// 		}
+// 		&:hover{
+// 			border-radius: none!important;
+// 			background-color: rgba(230,168, 42, .5);
+// 		}
+// 		/* Space out the links */
+// 		a {
+// 			padding: .7em;
+// 			display: block;
+// 			font-size: 0.8em;
+// 		}
+
+//     	Hide sub menus & sub-sub menus
+//      	* Position *underneath* originating li (see ul ul below)
+// 		ul, ul ul {
+// 			display: none;
+// 			z-index: 999;
+// 			position: absolute;
+// 			top: 100%;
+// 			left: 0;
+// 			width: 12em;
+// 			background-color: white;
+// 			// @include box-shadow (-5px 5px 10px rgba(0,0,0,.5));
+// 			// background-color: $menu-tab-color;
+// 			// background-image: url('./martinb.jpg');
+// 			// background-repeat: no-repeat;
+// 			// background-size: 100%;
+// 		}
+
+//     	/* Position sub-subs to right of parent li */
+// 		ul ul {
+// 			left:100%;
+// 			top: 0;
+// 			// background-color: adjust-lightness($menu-tab-color, -15);
+
+// 		}
+
+// 	    /* Make sub & sub-sub li's fill parent ul
+//      	* Add feint border to bottom to separate items */
+// 		li {
+// 			// display: inline-block;
+// 			// border-bottom: 1px solid adjust-lightness($menu-tab-color, -8);
+// 			// width: 100%;
+// 		}
+
+// 	}
+// 		> #add_new_link{
+// 			border: 1px solid black!important;
+// 		}
+// 	/* Highlight li on hover */
+// 	li:hover {
+
+// 		/* Change anchor colour to highlighted text */
+// 		> a {
+// 			color: $highlight-text;
+// 			background: none;
+// 			text-decoration: none;
+// 		}
+
+// 		/* Display subs and sub-subs on parent hover */
+// 		> ul {
+// 			display: block;
+// 		}
+
+//   	}
+
+// 	/* Don't display menus further than 3 deep in ul tree */
+// 	ul ul ul li:hover ul {
+// 		display: none;
+// 	}
+
+// 	/* Make sure no padding & margins round <ul>s.
+// 	 * Very likely to have been set in CSS for rest of site */
+// 	ul {
+// 		padding: 0;
+// 		margin: 0;
+// 	}
+
+// }
 /*
  * Shortcodes
 */
@@ -245,6 +281,18 @@ img.contentimg{
 		height: 100%;
 	}
 }
+.edit_profile{
+	h2{
+		color: $orange;
+		text-align: center;
+	}
+	form, p, h3{
+		margin: 10px 15px;
+	}
+}
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+}
 /*
 * Awesomesauce!
 */
@@ -262,7 +310,24 @@ img.contentimg{
 		font-weight: bold;
 	}
 }
-
+.panel.profile{
+	ul.profile_links{
+		list-style-type: none;
+		li{
+			display: inline-block;
+			&.avatar{
+				padding: 10px 0;
+				min-height: 50px;
+				width: 50px;
+				img{
+					width: inherit;
+					height: auto;
+					padding: 10px;
+				}
+			}
+		}
+	}
+}
 section#profile{
 	position: absolute;
 	bottom: 0%;
@@ -290,7 +355,7 @@ section#profile{
 				img{
 					width: inherit;
 					height: auto;
-					panel: 10px;
+					padding: 10px;
 				}
 			}
 		}
@@ -330,7 +395,7 @@ section#profile{
 	height: 300px;
 	width: 100%;
 	display: block;
-	margin: 0 auto;
+	margin: 0 0 0 -15px;
 	position: relative;
 
 	.arrow-down {
@@ -352,4 +417,25 @@ footer{
 	height: 20px;
 	width: 100%;
 }
-
+#admin-tabs{
+	ul{
+		list-style-type:none;
+		margin: 0 auto;
+		width: 50%;
+		display: block;
+		text-align: center;
+		li{
+			display: inline-block;
+			background-color: rgba(230,168, 42, .5);
+			margin-right: 10px;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+			a{
+				font-weight: bold;
+				text-decoration: none;
+				display: block;
+				margin:  15px 30px;
+				height: 30px;
+			}
+		}
+	}
+}
