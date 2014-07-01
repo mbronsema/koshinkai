@@ -1,7 +1,5 @@
 
 <div class="container">
-<p class="bg-primary col-md-12 large"><%= t('hello')  %></p>
-
 <%= form_for(@event, html: { role: 'form', class: 'form-horizontal well col-md-12'}) do |e| %>
   <%= e.label :title, "Titel" %><br /> <%= e.text_field :title, class: "form-control" %>
     <%= e.label :message, "Uitleg:" %><br /> <%= e.text_area :message %>
@@ -14,16 +12,17 @@
   <%= e.text_field :ending_at, 'data-behaviour' => 'datepicker'%></span></span>
 
   <p><%= e.label :repeat, "Herhalende activiteit?" %></br>
-  <div class="radio">
+ <!--  <div class="radio"> -->
+  <div>
     <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %> <%= e.label(:repeat_none, "Eenmalig") %> <br />
     <%= e.radio_button(:repeat, "Weekelijks") %> <%= e.label(:repeat_weekly, "Weekelijks") %><br />
   </div>
   <%= e.check_box :alteration, {}, "true", "false" %>
   <%= e.label(:alteration, "Wijzinging") %><br />
-  <% if current_page?('edit_event_path') %>
-  <%= e.submit "Activteit wijzigen", class: "btn btn-warning" %>
+  <% if current_page?('/event/new') %>
+    <%= e.submit "Activiteit toevoegen", class: 'btn btn-primary' %>
   <% else %>
-  <%= e.submit "Activteit toevoegen", class: 'btn btn-primary' %>
+    <%= e.submit "Activiteit wijzigen", class: "btn btn-warning" %>
   <% end %>
 <% end %>
 </div>
