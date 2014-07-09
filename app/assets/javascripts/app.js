@@ -4,11 +4,13 @@ $(document).ready(function() {
 
     var mapsLat = 53.200117;
     var mapsLong= 5.809021;
+
     var map =new GMaps({
       div: '#maps',
       lat: mapsLat,
       lng: mapsLong
     });
+    
     map.addMarker({
       lat: mapsLat,
       lng: mapsLong,
@@ -49,7 +51,7 @@ $(document).ready(function() {
 
     // Froala editor initialising
 
-    $('#new_post textarea, #edit_post textarea').editable({inlineMode:false, height: 300,
+    $('#new_post textarea, #edit_post_ textarea').editable({inlineMode:false, height: 300,
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
                                 paragraphy: true});
     $('#comment_form  textarea').editable({inlineMode:false, height: 150, width: 350,
