@@ -36,6 +36,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:password_confirmation ,:password ,:email, :role, :avatar, :avatar_cache, :remove_avatar, :invite_code, :firstname, :lastname)}
   end
   
+  def update_sanitized_params
+    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:firstname, :lastname, :password, :current_password)}
+  end
   
   def user_not_authorized
     flash[:alert] = "Access denied."

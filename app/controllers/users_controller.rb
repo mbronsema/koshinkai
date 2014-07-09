@@ -50,7 +50,13 @@ class UsersController < ApplicationController
       redirect_to adminpanels_path, :notice => "Can't delete yourself."
     end
   end
+  
   def secure_params
     params.require(:user).permit(:email, :role, :invite_code, :firstname, :lastname)
   end
+  
+  
+  
+  
+  
 end

@@ -38,14 +38,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def update
-    @category = Category.find(params[:id])
-    if @category.update(category_params)
-      redirect_to adminpanels_path
-    else
-      render 'edit'
-    end
-  end
+
 
   def postnew 
     #@category = Category.find_by_url(params[:url])
@@ -69,15 +62,16 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
   
+
+  
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      redirect_to @catergory
+      redirect_to adminpanels_path
     else
       render 'edit'
     end
   end
-  
 
   def destroy
     @category = Category.find(params[:id])
