@@ -1,0 +1,20 @@
+<div class="container user-profile">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<span class="icon-avatar">
+					<img src="<%= @user.avatar %>" alt="Avatar voor <%= @user.email %>" title="Avatar voor <%= @user.email %>"/>
+				</span>
+				<h2>Profiel voor <%= @user.email %></h2>
+				<%= @user.email %>
+				<%= @user.firstname %>
+				<%= @user.lastname %>
+				<%= link_to("Bewerk profiel", edit_user_registration_path, :class => "btn btn-mini btn-warning  btn-sm btn-edit") %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<%= render "layouts/user"%>
+		</div>
+	</div>
+</div>
+

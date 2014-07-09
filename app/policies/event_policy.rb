@@ -1,4 +1,11 @@
-class EventPolicy < Struct.new(:user, :event)
+class EventPolicy     
+  attr_reader :user, :event
+
+  def initialize(user, event)
+    @user = user
+    @event = event
+  end
+    
     
     def update?
       user.admin?

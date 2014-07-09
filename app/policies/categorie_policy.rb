@@ -1,21 +1,21 @@
-class PostPolicy
-  attr_reader :user, :post
-
-  def initialize(user, post)
-    @user = user
-    @post = post
-  end
+class CategoriePolicy 
+  attr_reader :user, :categorie
   
+  def initialize(user, categorie)
+    @user = user
+    @categorie = categorie
+  end
+
+  def new?
+    @user.admin?
+  end
+
   def edit?
     @user.admin?
   end
        
   def index?
     @user.admin?
-  end
-  
-  def show?
-    false
   end
 
   def update?
@@ -27,6 +27,3 @@ class PostPolicy
   end
 
 end
-
-
-

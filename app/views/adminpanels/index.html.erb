@@ -1,6 +1,34 @@
 <% #content_for :adminpanel do %>
-<%= link_to 'Nieuwe subcategorie maken', new_category_path %>
+<%= link_to 'Nieuwe subcategorie maken', new_category_path,  class: 'btn btn-success' %>
+<%= link_to 'Een nieuwe activiteit aanmaken', new_event_path, class: 'btn btn-success' if current_user.try(:admin?) %>
+<%= link_to 'Een nieuw bericht/bericht aanmaken', new_post_path,  class: 'btn btn-success' %>
+<nav id="admin-tabs">
+	<ul>
+		<li><a href="#">link</a></li>
+		<li><a href="#">link</a></li>
+		<li><a href="#">link</a></li>
+	</ul>
+</nav>
 <div class="table-responsive">
+  <h2>Artikelen en berichten</h2>
+  <table class="table table-striped">
+    <tr><th>Menunaam</th><th>Url</th><th>Menu</th><th>Aangenaakt op</th><th>Aangepast op</th><th>verwijderen</th><th>bewerken</th></tr>
+   
+   
+     <% @categories.each do |c| %>
+      <tr><td><%= c.menuname %></td>
+      <td><%= c.url %></td>
+      <td><%= c.parent_id ? "submenu" : "hoofdmenu" %></td>
+      <td><%= DTformat c.created_at %></td>
+      <td><%= DTformat c.updated_at %></td>
+      <td><%= link_to 'Destroy', c, :method => :delete, data: {confirm: "Wilt u deze categorie verwijderen?"} %></td>
+      <td><%= link_to 'Edit', edit_category_path(c) %></td>   
+    </tr>
+    <% end %>
+  </table> 
+</div>
+
+<div class="table-responsive admin-section">
   <h2>Artikelen en berichten</h2>
   <table class="table table-striped">
     <tr><th>Titel</th><th>Aangenaakt op</th><th>Aangepast op</th><th>verwijderen</th><th>bewerken</th></tr>
@@ -10,6 +38,7 @@
       <tr><td><%= p.title %></td>
 		  <td><%= DTformat p.created_at %></td>
 		  <td><%= DTformat p.updated_at %></td>
+		
 		  <td><%= link_to 'Destroy', p, :method => :delete, data: {confirm: "Wilt u dit bericht verwijderen?"} %></td>
 		  <td><%= link_to 'Edit', edit_post_path(p) %></td>	  
 		</tr>
@@ -19,7 +48,7 @@
 
 
 
-<div class="table-responsive">
+<div class="table-responsive admin-section">
   <h2>Activiteiten</h2>
   <table class="table table-striped">
     <tr><th>Titel</th>
@@ -38,7 +67,7 @@
   </table>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive admin-section">
   <h2>Leden</h2>
   <table class="table table-striped">
     <tr>
@@ -54,8 +83,8 @@
 	  <% @users.each do |u| %>
     <tr>
 		<td><%= u.email %></td>
-		<td><%= DTformat u.current_sign_in_at %></td>
-		<td><%= DTformat u.last_sign_in_at %></td>
+		<td><%=  u.current_sign_in_at %></td>
+		<td><%=  u.last_sign_in_at %></td>
 		
 		
 		<td><%= link_to "Profiel bewerken", edit_user_path(u) %></td>

@@ -2,19 +2,27 @@ class CategoriesController < ApplicationController
   respond_to :html, :json
   before_action :authenticate_user!, except: [:show]
   def show
-    unless @category = Category.find_by_url(params[:url])
-      redirect_to root_path
-    end
+    # unless @category = Category.find_by_url(params[:url])
+    #   redirect_to root_path
+    @category = Category.find_by_url(params[:url])
+    @posts = Post.where(category_id: @category.id).all
+  
+    # end
   end
 
   def new
     @category = Category.new
     @categories = Category.where(parent_id: nil).all
+    authorize @users
   end
+
+
+  
 
   def create
     @category = Category.new(category_params)
     @category.menuname.downcase!
+    authorize @users
     if @category.save
       redirect_to adminpanels_path
     else
@@ -38,6 +46,20 @@ class CategoriesController < ApplicationController
       render 'postnew'
     end
   end
+
+  def edit 
+    @category = Category.find(params[:id])
+  end
+  
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to @catergory
+    else
+      render 'edit'
+    end
+  end
+  
 
   def destroy
     @category = Category.find(params[:id])

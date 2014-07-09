@@ -28,19 +28,7 @@
   <iframe width="560" height="315" src="//www.youtube.com/embed/f5Qd1weoc_I?controls=0&modestbranding=1&rel=0&showinfo=0&autohide=0" frameborder="0" allowfullscreen></iframe>
 <!-- <iframe id="ytplayer" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/f5Qd1weoc_I?controls=0&modestbranding=1&rel=0&showinfo=0&autohide=0" frameborder="0" allowfullscreen></iframe>
  -->  <% end %>
-    <% if user_signed_in? %>
-    <section id="profile" class="col-md-3 panel panel-primary">
-      <%= content_tag(:div, "Welkom, " + current_user.email, class: "panel-heading") %>
-      <ul class="profile_links">
-        <li class="panel avatar"><%= image_tag(current_user.avatar_url, :class => "col-md-6") if current_user.avatar? %></li>
-      <% if current_user.admin? %>
-        <li><%= link_to("Admin", adminpanels_path, :class => "btn btn-mini btn-primary btn-sm") %></li>
-      <% end %>
-        <li><%= link_to("Bewerk profiel", edit_user_registration_path, :class => "btn btn-mini btn-warning  btn-sm") %></li>
-        <li><%= link_to('Uitloggen', destroy_user_session_path, :method => :delete, :class => "profile_logout btn btn-mini btn-danger btn-sm ") %></li>
-      </ul>
-    </section>
-    <% end %>
+    <%= render "layouts/profile" %>
   </header>
   <!-- Nieuwe menu -->
   <%= render "layouts/menu" %>
@@ -54,8 +42,8 @@
   <div class="col-md-4">
       <div id="maps" ><img /></div>
   </div>
-  <div class="col-md-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, ex perspiciatis cupiditate amet impedit eius. Molestiae, incidunt, possimus, id, ut quia vitae corporis tempora nisi totam error perferendis rem odit.</div>
-  <div class="col-md-4">Quos, perspiciatis amet totam eligendi laboriosam. Omnis, saepe accusamus asperiores quaerat tenetur at dolore quasi consequuntur cum similique. Atque, minima provident distinctio harum ducimus id sint a eum odit officia!</div>
+  <div class="col-md-4"><p>Aikido Koshinkai<br/>Emmakade 59 <br/> Leeuwarden</p></div>
+  <div class="col-md-4"></div>
 
 </section>
 

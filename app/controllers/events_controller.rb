@@ -50,6 +50,6 @@ respond_to :html, :json
 
 	private
 	def event_params
-		params.require(:event).permit(:title, :message, :starting_at, :ending_at, :repeat)
+		params.require(:event).permit(:title, :message, :starting_at, :ending_at, :repeat, :alteration)
 	end
 end

@@ -2,9 +2,13 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   after_action :verify_authorized, except: [:show]
 
+
+#@user.member?
+
   def index
     @users = User.all
     authorize @users
+    
   end
 
   def new
@@ -47,6 +51,6 @@ class UsersController < ApplicationController
     end
   end
   def secure_params
-    params.require(:user).permit(:email, :role, :invite_code)
+    params.require(:user).permit(:email, :role, :invite_code, :firstname, :lastname)
   end
 end

@@ -4,28 +4,59 @@ $(document).ready(function() {
 
     var mapsLat = 53.200117;
     var mapsLong= 5.809021;
-    var url = GMaps.staticMapURL({
-        size: [400, 1024],
-        lat: mapsLat,
-        lng: mapsLong
+    var map =new GMaps({
+      div: '#maps',
+      lat: mapsLat,
+      lng: mapsLong
     });
-    $('<img/>').attr('src', url).appendTo('#maps');
+    map.addMarker({
+      lat: mapsLat,
+      lng: mapsLong,
+      title: 'Koshinkai',
+      infoWindow: {
+         content: 'Aikido Koshinkai<br/> Emmakade 59 <br/> Leeuwarden'
+      }
+    });
 
-    $('.panel').on('mouseenter', function(){
-        $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");
-    }).on('mouseleave', function(){
-        $('.panel-bar', this).removeClass("flipInX").addClass("flipOutX");
-    });
+    
+
+    // $("#new_user").bootstrapValidator({
+    //     message: "Dit veld is niet goed ingevuld",
+    //     feedbackIcons: {
+    //             valid: 'glyphicon glyphicon-ok',
+    //             invalid: 'glyphicon glyphicon-remove',
+    //             validating: 'glyphicon glyphicon-refresh'
+    //     },
+    //     fields: {
+    //         "user[email]": {
+    //             validators: {
+    //                 emailAddress: {
+    //                     message: 'Het email veld is vereist.'
+    //                 },
+    //                 notEmpty:{
+    //                     message: 'Dit veld mag niet leeg zijn.'
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    // });
+    // $('.panel').on('mouseenter', function(){
+    //     $('.panel-bar', this).removeClass("flipOutX").addClass("flipInX");
+    // }).on('mouseleave', function(){
+    //     $('.panel-bar', this).removeClass("flipInX").addClass("flipOutX");
+    // });
 
     // Froala editor initialising
-    $('form textarea').editable({inlineMode:false, height: 300,
+
+    $('#new_post textarea, #edit_post textarea').editable({inlineMode:false, height: 300,
+                                buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
+                                paragraphy: true});
+    $('#comment_form  textarea').editable({inlineMode:false, height: 150, width: 350,
                                 buttons: ['undo', 'redo' , 'sep', 'bold', 'italic', 'underline', 'createLink','color'],
                                 paragraphy: true});
     $("header").fitVids();
-    $('.nav li.dropdown a').hover( function(e){
-        console.log($(this, 'ul.dropdown-menu'));
-    });
-    // Initialise the datetimepicker
+        // Initialise the datetimepicker
 	$('[data-behaviour~=datepicker]').datetimepicker({
 		format: 'YYYY-MM-DD HH:mm',
 		maskInput: true,

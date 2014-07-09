@@ -1,33 +1,53 @@
-  <nav class="menu">
-    <div class="container">
-      <ul>
-      <% @menu.each do |m| %>
-        <% if m.prive == false %>
-          <% if m.parent_id == nil %>
-            <li class="dropdown <%= current m.url %>">
-            <%= link_to m.menuname.capitalize, "/#{m.url}", class: 'dropdown-toggle' %><ul>
-            <% @menu.each do |d| %>
-            <% w = m %>
-              <% if d.parent_id == m.id %>
-                <li class="<%= current(submenu_path(w.url, d.url))%>"><%= link_to d.menuname.capitalize, submenu_path(w.url, d.url) %></li>
-              <% end %>
+<div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#koshinkai-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="koshinkai-menu">
+      <ul class="nav navbar-nav">
+        <% @menu.each do |m| %>
+          <% if current_user || m.prive == false %>
+            <% if m.parent_id == nil %>
+            <li class="dropdown <%= current('/'+m.url) %>">
+              <%= 
+                  link_to(m.menuname.capitalize, "/#{m.url}")
+              %>
+              <ul class="dropdown-menu" role="menu">
+                <% @menu.each do |d| %>
+                   <%= content_tag(:li,
+                        link_to(d.menuname.capitalize, submenu_path(m.url, d.url)),
+                        class: "#{current(submenu_path(m.url, d.url))}"
+                      ) if d.parent_id == m.id%>
+                <% end %>
+              </ul>
             <% end %>
-            </ul></li>
+            </li>
           <% end %>
         <% end %>
-      <% end %>
+      </ul>
       <% if current_user.try(:admin?) %>
-        <li id="add_new_link"><%=link_to("+", new_category_path) %></li>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="add_new_link"><%=link_to("+", new_category_path) %></li>
+        </ul>
       <% end %>
-        <li>      <%= form_tag(search_path, method: 'get') do %>
+      <%= form_tag(search_path, method: 'get', class: "navbar-form navbar-right", role: "search") do %>
         <div class="right-inner-addon">
           <i class="glyphicon glyphicon-search"></i>
           <%= text_field_tag(:search, params[:search], :placeholder => "Zoeken...", :class => "form-control") %>
         </div>
-        <%= submit_tag('Zoeken', name: nil, type: 'hidden') %>
-    <% end %>
-</li>
-      </ul>
+        <%= submit_tag('Zoeken', name: nil, type: 'hidden') %><%= link_to("contact", new_contact_path)%>
+      <% end %>
     </div>
-    <span class="colorbar"></span>
+	
+  </div>
 </nav>
+</div>
+<br/><br/>

@@ -17,9 +17,9 @@
   <div class="radio">
     <%= e.radio_button(:repeat, "Eenmalig", checked: true ) %> <%= e.label(:repeat_none, "Eenmalig") %> <br />
     <%= e.radio_button(:repeat, "Weekelijks") %> <%= e.label(:repeat_weekly, "Weekelijks") %><br />
-    <%= e.radio_button(:repeat, "Tweeweekelijks") %> <%= e.label(:repeat_biweekly, "Tweeweekelijks") %><br />
-    <%= e.radio_button(:repeat, "Maandelijks") %> <%= e.label(:repeat_monthly, "Maandelijks") %></p>
   </div>
+  <%= e.check_box :alteration, {}, "true", "false" %>
+  <%= e.label(:alteration, "Wijzinging") %><br />
   <% if current_page?('edit_event_path') %>
   <%= e.submit "Activteit wijzigen", class: "btn btn-warning" %>
   <% else %>

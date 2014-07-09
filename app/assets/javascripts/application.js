@@ -12,8 +12,8 @@
 //
 
 //= require jquery
-//= require dropzone
 //= require lightbox2
+//= require bootstrap
 //= require gmaps
 //= require jquery_ujs
 //= require jquery.turbolinks
@@ -21,11 +21,10 @@
 //= require froala-wysiwyg
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrapValidator
 //= require moment/nl
 //= require locales/bootstrap-datetimepicker.nl.js
 //= require fullcalendar
 //= require fullcalendar/lang/nl.js
 //= require turbolinks
 //= require_tree .
-
-

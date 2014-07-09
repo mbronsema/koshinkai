@@ -7,9 +7,10 @@
     end
     
     def edit?
+      @user.member?
       @user.admin?
     end
-    
+         
     def index?
       @user.admin?
     end
